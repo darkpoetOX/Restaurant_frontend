@@ -5,6 +5,7 @@ import RestaurantList from "../components/RestaurantList";
 import CustomerReviews from "../components/CustomerReviews";
 import Footer from "../components/Footer";
 import HeroImage from "../components/HeroImage";
+import BoroughMap from "../components/BoroughMap";
 
 
 const RestaurantContainer = () =>{
@@ -44,12 +45,26 @@ const RestaurantContainer = () =>{
         setFavouritesList(updatedFavourites)
     }
 
+    const filterByPrice=(value)=>{
+        const originalList= [...restaurantList]
+        let filterByPriceList=[]
+        filterByPriceList=originalList.filter((restaurant)=> restaurant.priceRange===value)
+        setFilteredList(filterByPriceList);
+        // doesnt reset list when changing price range
+    }
+
     return(
         <>
             <NavBar />
             <HeroImage />
+            <BoroughMap/>
+            <div className="price-range-buttons">
+                <button value="LOW" onClick={()=>filterByPrice("LOW")}>£</button>
+                <button value="MEDIUM" onClick={()=>filterByPrice("MEDIUM")}>££</button>
+                <button value="HIGH" onClick={()=>filterByPrice("HIGH")}>£££</button>
+            </div>
             <FavouritesList deleteFromFav = {deleteFromFav}/>
-            <RestaurantList addToFav = {addToFav} />  
+            <RestaurantList addToFav = {addToFav} restaurants={filteredList} />  
             <CustomerReviews />  
             <Footer />  
         </>

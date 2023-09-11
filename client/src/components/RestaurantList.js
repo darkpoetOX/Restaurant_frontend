@@ -1,13 +1,13 @@
-const RestaurantList = () => {
+import Restaurant from "./Restaurant"
 
+const RestaurantList = ({addToFav, restaurants}) => {
+    const restaurantCompenents= restaurants.map((restaurant,index)=>{
+        return <Restaurant restaurant={restaurant} key={index} addToFav={addToFav}/>
+    })
     return(
         <>
-            <p>This is the RestaurantList</p>
+            {restaurantCompenents}
         </>
     )
 }
-
-
-
-
 export default RestaurantList;
