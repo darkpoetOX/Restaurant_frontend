@@ -4,6 +4,7 @@ import FavouritesList from "../components/FavouritesList";
 import RestaurantList from "../components/RestaurantList";
 import CustomerReviews from "../components/CustomerReviews";
 import Footer from "../components/Footer";
+import HeroImage from "../components/HeroImage";
 
 
 const RestaurantContainer = () =>{
@@ -45,8 +46,9 @@ const RestaurantContainer = () =>{
 
     return(
         <>
-          <NavBar />  
-          <FavouritesList deleteFromFav = {deleteFromFav}/>  
+          <NavBar />
+            <HeroImage />
+          <FavouritesList deleteFromFav = {deleteFromFav}/>
           <RestaurantList addToFav = {addToFav} />  
           <CustomerReviews />  
           <Footer />  
