@@ -1,4 +1,10 @@
 import {useState,useEffect} from "react";
+import NavBar from "../components/NavBar";
+import FavouritesList from "../components/FavouritesList";
+import RestaurantList from "../components/RestaurantList";
+import CustomerReviews from "../components/CustomerReviews";
+import Footer from "../components/Footer";
+
 
 const RestaurantContainer = () =>{
 
@@ -26,9 +32,13 @@ const RestaurantContainer = () =>{
 
     return(
         <>
-        
-        
+          <NavBar />  
+          <FavouritesList />  
+          <RestaurantList />  
+          <CustomerReviews />  
+          <Footer />  
         </>
+
     )
 
 }
