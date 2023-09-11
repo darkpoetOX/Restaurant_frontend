@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1a7b8f35-2363-475c-a5b7-ac7bf11f3438" name="Changes" comment="" />
+    <list default="true" id="1a7b8f35-2363-475c-a5b7-ac7bf11f3438" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../server/src/main/java/com/bnta/annas_restaurant_recommender/configurations/SpringGlobalConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/RestaurantContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/RestaurantContainer.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -62,6 +67,7 @@
       <workItem from="1694273179187" duration="25000" />
       <workItem from="1694419971444" duration="2082000" />
       <workItem from="1694427182940" duration="62000" />
+      <workItem from="1694427255991" duration="846000" />
     </task>
     <servers />
   </component>
