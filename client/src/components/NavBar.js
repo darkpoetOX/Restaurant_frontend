@@ -6,15 +6,10 @@ const NavBar = () => {
                 <a href="">About Us</a>
                 <a href="">Submit Restaurant</a>
                 <button>Favourites ❤️</button>
-               
-            
-            
+
             </nav>
 
     )
 }
-
-
-
 
 export default NavBar;
