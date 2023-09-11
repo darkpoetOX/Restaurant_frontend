@@ -46,12 +46,12 @@ const RestaurantContainer = () =>{
 
     return(
         <>
-          <NavBar />
+            <NavBar />
             <HeroImage />
-          <FavouritesList deleteFromFav = {deleteFromFav}/>
-          <RestaurantList addToFav = {addToFav} />  
-          <CustomerReviews />  
-          <Footer />  
+            <FavouritesList deleteFromFav = {deleteFromFav}/>
+            <RestaurantList addToFav = {addToFav} />  
+            <CustomerReviews />  
+            <Footer />  
         </>
 
     )

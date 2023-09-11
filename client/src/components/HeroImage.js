@@ -1,4 +1,5 @@
 import Carousel from 'react-bootstrap/Carousel';
+
 const HeroImage =  () => {
     return (
         <Carousel fade interval={3000}>

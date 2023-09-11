@@ -1,6 +1,14 @@
 .hero-image {
   width: 100%;
   height: 500px;
+
 }
 
-
+.custom-navbar {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap; 
+  align-items: center;
+  justify-content: space-around; 
+  background-color: rgba(0,0,0,0);
+}
