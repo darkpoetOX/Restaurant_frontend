@@ -30,11 +30,24 @@ const RestaurantContainer = () =>{
 
     },[])
 
+
+    const addToFav = (restaurant) => {
+        if (!favouritesList.includes(restaurant)){
+            const updatedFavourites = [...favouritesList, restaurant]
+            setFavouritesList(updatedFavourites);
+        }
+    }
+
+    const deleteFromFav = (deleteRestaurant) => {
+        const updatedFavourites = favouritesList.filter((restaurant) => restaurant.name !== deleteRestaurant.name)
+        setFavouritesList(updatedFavourites)
+    }
+
     return(
         <>
           <NavBar />  
-          <FavouritesList />  
-          <RestaurantList />  
+          <FavouritesList deleteFromFav = {deleteFromFav}/>  
+          <RestaurantList addToFav = {addToFav} />  
           <CustomerReviews />  
           <Footer />  
         </>
