@@ -53,11 +53,19 @@ const RestaurantContainer = () =>{
         // doesnt reset list when changing price range
     }
 
+    const filterByBorough=(borough)=>{
+        // want to also filter along with the cost filter
+        const originalList= [...restaurantList]
+        let filterByBoroughList=[];
+        filterByBoroughList=originalList.filter((restaurant)=>restaurant.borough===borough);
+        setFilteredList(filterByBoroughList);    
+    }
+
     return(
         <>
             <NavBar />
             <HeroImage />
-            <BoroughMap/>
+            <BoroughMap filterByBorough={filterByBorough} />
             <div className="price-range-buttons">
                 <button value="LOW" onClick={()=>filterByPrice("LOW")}>£</button>
                 <button value="MEDIUM" onClick={()=>filterByPrice("MEDIUM")}>££</button>
