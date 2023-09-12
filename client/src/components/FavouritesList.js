@@ -2,7 +2,7 @@ const FavouritesList = () => {
 
     return(
         <>
-            <p>This is the FavouritesList</p>
+            {/*<p>This is the FavouritesList</p>*/}
         </>
     )
 }

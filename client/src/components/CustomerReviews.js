@@ -2,7 +2,7 @@ const CustomerReviews = () => {
 
     return(
         <>
-            <p>This is the CustomerReviews</p>
+            {/*<p>This is the CustomerReviews</p>*/}
         </>
     )
 }

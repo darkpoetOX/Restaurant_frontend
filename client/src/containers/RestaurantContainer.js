@@ -15,6 +15,10 @@ const RestaurantContainer = () =>{
     const [filteredList, setFilteredList] = useState([]);
     const [favouritesList, setFavouritesList] = useState([]);
 
+    const [priceFilter, setPriceFilter] = useState(null); // Price filter
+    const [boroughFilter, setBoroughFilter] = useState(null); // Borough filter
+
+
     // fetch restaurant data from data loader
     const fetchRestaurants = async () =>{ 
         const response = await fetch("http://localhost:8080/restaurants"); 
@@ -45,27 +49,67 @@ const RestaurantContainer = () =>{
         setFavouritesList(updatedFavourites)
     }
 
-    const filterByPrice=(value)=>{
-        const originalList= [...restaurantList]
-        let filterByPriceList=[]
-        filterByPriceList=originalList.filter((restaurant)=> restaurant.priceRange===value)
-        setFilteredList(filterByPriceList);
-        // doesnt reset list when changing price range
-    }
+    // const filterByPrice=(value)=>{
+    //     const originalList= [...restaurantList]
+    //     let filterByPriceList=[]
+    //     filterByPriceList=originalList.filter((restaurant)=> restaurant.priceRange===value)
+    //     setFilteredList(filterByPriceList);
+    //     // doesnt reset list when changing price range
+    // }
+    //
+    // const filterByBorough=(borough)=>{
+    //     // want to also filter along with the cost filter
+    //     const originalList= [...restaurantList]
+    //     let filterByBoroughList=[];
+    //     filterByBoroughList=originalList.filter((restaurant)=>restaurant.borough===borough);
+    //     setFilteredList(filterByBoroughList);
+    // }
 
-    const filterByBorough=(borough)=>{
-        // want to also filter along with the cost filter
-        const originalList= [...restaurantList]
-        let filterByBoroughList=[];
-        filterByBoroughList=originalList.filter((restaurant)=>restaurant.borough===borough);
-        setFilteredList(filterByBoroughList);    
-    }
+    // Apply active filters to update filteredList
+    const applyFilters = () => {
+        let filteredListCopy = [...restaurantList];
+
+        if (priceFilter) {
+            filteredListCopy = filteredListCopy.filter(
+                (restaurant) => restaurant.priceRange === priceFilter
+            );
+        }
+
+        if (boroughFilter) {
+            filteredListCopy = filteredListCopy.filter(
+                (restaurant) => restaurant.borough === boroughFilter
+            );
+        }
+
+        setFilteredList(filteredListCopy);
+    };
+
+    // Handle price filter
+    const filterByPrice = (value) => {
+        setPriceFilter(value); // Set price filter state
+        applyFilters(); // Apply filters to update filteredList
+    };
+
+    // Handle borough filter
+    const filterByBorough = (borough) => {
+        setBoroughFilter(borough); // Set borough filter state
+        applyFilters(); // Apply filters to update filteredList
+    };
+
+    const handleResetFilters = () => {
+        // Reset filter values to their defaults or clear them
+        setPriceFilter(null);
+        setBoroughFilter(null);
+        setFilteredList([...restaurantList]);
+        // Add similar lines for other filters
+    };
 
     return(
         <>
             <NavBar />
             <HeroImage />
             <BoroughMap filterByBorough={filterByBorough} />
+            <button onClick={handleResetFilters}>Reset Filters</button>
             <div className="price-range-buttons">
                 <button value="LOW" onClick={()=>filterByPrice("LOW")}>£</button>
                 <button value="MEDIUM" onClick={()=>filterByPrice("MEDIUM")}>££</button>
