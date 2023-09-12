@@ -1,7 +1,7 @@
 const BoroughMap = ({filterByBorough}) =>{
 
     return(
-        <div>
+        <div className={"BoroughMap"}>
         <img id="borough-map" src="./Images/boroughmap826x642.png" usemap="#image-map" alt="london boroughs"/>
         <map name="image-map">
             <area alt="BARKINGANDDAGENHAM" title="BARKINGANDDAGENHAM" onClick={()=>filterByBorough("BARKINGANDDAGENHAM")} coords="653,276,655,253,666,236,681,214,674,202,675,196,
