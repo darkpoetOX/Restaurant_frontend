@@ -82,11 +82,10 @@ const RestaurantContainer = () =>{
     };
 
     const handleResetFilters = () => {
-        // Reset filter values to their defaults or clear them
+        // Reset filter values
         setPriceFilter(null);
         setBoroughFilter(null);
         setFilteredList([...restaurantList]);
-        // Add similar lines for other filters
     };
 
     return(
