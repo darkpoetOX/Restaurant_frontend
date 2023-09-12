@@ -17,7 +17,7 @@ const HeroImage =  () => {
                 </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
-                <img src={'./Images/heroBanner1.png'} className={"hero-image"}/>
+                <img src={'./Images/heroBanner3.png'} className={"hero-image"}/>
                 <Carousel.Caption>
 
 

@@ -136,7 +136,7 @@ const RestaurantContainer = () =>{
                         <input type="checkbox"/>
                         <span className="slider round"></span>
                     </label>
-                    <span className="switch-name">Veg</span>
+                    <span className="switch-name">Vegetarian</span>
                 </div>
 
                 <div className="switch-container">
