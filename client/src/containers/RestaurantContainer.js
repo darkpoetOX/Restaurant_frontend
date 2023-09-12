@@ -10,8 +10,8 @@ import BoroughMap from "../components/BoroughMap";
 
 const RestaurantContainer = () =>{
 
-    // create the  initial states
-    const [restaurantList, setRestaurantList] = useState([]); 
+    // create the initial states
+    const [restaurantList, setRestaurantList] = useState([]);
     const [filteredList, setFilteredList] = useState([]);
     const [favouritesList, setFavouritesList] = useState([]);
 
@@ -20,14 +20,14 @@ const RestaurantContainer = () =>{
 
 
     // fetch restaurant data from data loader
-    const fetchRestaurants = async () =>{ 
-        const response = await fetch("http://localhost:8080/restaurants"); 
+    const fetchRestaurants = async () =>{
+        const response = await fetch("http://localhost:8080/restaurants");
         const data = await response.json()
         setRestaurantList(data);
         setFilteredList(data);
         console.log(data);
-        
-        
+
+
     }
 
     // fetch data on load at the start of the run
@@ -35,6 +35,11 @@ const RestaurantContainer = () =>{
         fetchRestaurants();
 
     },[])
+
+    useEffect(() => {
+        applyFilters()
+
+    },[priceFilter,boroughFilter])
 
 
     const addToFav = (restaurant) => {
@@ -72,13 +77,13 @@ const RestaurantContainer = () =>{
     // Handle price filter
     const filterByPrice = (value) => {
         setPriceFilter(value); // Set price filter state
-        applyFilters(); // Apply filters to update filteredList
+        //applyFilters(); // Apply filters to update filteredList  -- we took it out here to make it apply when we change state and applied it to useeffect
     };
 
     // Handle borough filter
     const filterByBorough = (borough) => {
         setBoroughFilter(borough); // Set borough filter state
-        applyFilters(); // Apply filters to update filteredList
+        //applyFilters(); // Apply filters to update filteredList -- we took it out here to make it apply when we change state and applied it to useeffect
     };
 
     const handleResetFilters = () => {
@@ -93,18 +98,59 @@ const RestaurantContainer = () =>{
             <NavBar />
             <HeroImage />
             <BoroughMap filterByBorough={filterByBorough} />
-            <hr />
             <p>{boroughFilter}</p>
-            <button onClick={handleResetFilters}>Reset Filters</button>
+            <div className={"ResetButton"}>
+                <button onClick={handleResetFilters}> <strong>Reset Filters</strong> </button>
+            </div>
+
             <div className="price-range-buttons">
                 <button value="LOW" onClick={()=>filterByPrice("LOW")}>£</button>
                 <button value="MEDIUM" onClick={()=>filterByPrice("MEDIUM")}>££</button>
                 <button value="HIGH" onClick={()=>filterByPrice("HIGH")}>£££</button>
             </div>
             <FavouritesList deleteFromFav = {deleteFromFav}/>
-            <RestaurantList addToFav = {addToFav} restaurants={filteredList} />  
-            <CustomerReviews />  
-            <Footer />  
+            <div className={"RestaurantBox"}>
+            <RestaurantList addToFav = {addToFav} restaurants={filteredList} />
+            </div>
+
+            <div className={"slider-css"}>
+
+                <div className="switch-container">
+                    <label className="switch">
+                        <input type="checkbox"/>
+                        <span className="slider round"></span>
+                    </label>
+                    <span className="switch-name">Halal</span>
+                </div>
+
+                <div className="switch-container">
+                    <label className="switch">
+                        <input type="checkbox" name="vegan"/>
+                        <span className="slider round"></span>
+                    </label>
+                    <span className="switch-name">Vegan</span>
+                </div>
+
+                <div className="switch-container">
+                    <label className="switch">
+                        <input type="checkbox"/>
+                        <span className="slider round"></span>
+                    </label>
+                    <span className="switch-name">Veg</span>
+                </div>
+
+                <div className="switch-container">
+                    <label className="switch">
+                        <input type="checkbox"/>
+                        <span className="slider round"></span>
+                    </label>
+                    <span className="switch-name">Dairy Free</span>
+                </div>
+
+            </div>
+
+            <CustomerReviews />
+            <Footer />
         </>
 
     )

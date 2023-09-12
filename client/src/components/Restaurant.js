@@ -9,7 +9,7 @@ const Restaurant =({addToFav, restaurant})=>{
     return(
         <>
         <p>{restaurant.name}</p>
-        <p>{dishList}</p>
+        {/*<p>{dishList}</p>*/}
 
         <button onClick={() => addToFav(restaurant)}>❤️</button>
 

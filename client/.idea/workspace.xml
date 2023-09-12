@@ -7,7 +7,8 @@
     <list default="true" id="1a7b8f35-2363-475c-a5b7-ac7bf11f3438" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/BoroughMap.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/BoroughMap.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Restaurant.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Restaurant.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/RestaurantList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/RestaurantList.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/containers/RestaurantContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/RestaurantContainer.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -80,7 +81,7 @@
       <workItem from="1694427255991" duration="846000" />
       <workItem from="1694429459867" duration="878000" />
       <workItem from="1694436463881" duration="5586000" />
-      <workItem from="1694528258704" duration="1293000" />
+      <workItem from="1694528258704" duration="6248000" />
     </task>
     <servers />
   </component>

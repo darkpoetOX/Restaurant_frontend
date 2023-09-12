@@ -47,12 +47,123 @@
 
 .price-range-buttons button:hover {
   background-color: #ab7e78;
+  color: white;
 }
 
 body{
   background-color: #dbd4d3 !important;
 }
 
-/*#ab7e78 - old rose*/
-/*#d2cca1 - sage*/
-/*#dbd4d3 - Timberwolf*/
+.ResetButton {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+
+}
+
+.ResetButton button {
+  padding: 10px 20px;
+  background-color: #d2cca1;
+  color: #757780;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  border-radius: 24px;
+  width: 150px;
+}
+
+.ResetButton button:hover {
+  background-color: #ab7e78;
+  color: white;
+}
+
+.RestaurantBox {
+  background-color: white;
+  padding: 20px;
+  max-width: 800px;
+  margin: 20px auto;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* creates 3 equal columns */
+  gap: 10px;
+  height: 300px;
+  overflow-y: auto;
+}
+
+.EachRestaurant {
+  background-color: #ab7e78;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  /*flex-basis: calc(33.33% - 10px);*/
+}
+
+.EachRestaurant button {
+  padding: 10px 20px;
+  background-color: transparent;
+  color: #757780;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  border-radius: 24px;
+
+  /*filter: brightness(0.5) saturate(150%) hue-rotate(90deg);*/
+}
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;   /* adjust width as needed */
+  height: 34px;  /* adjust height as needed */
+  margin: 10px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 34px; /* Makes it rounded */
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px; /* adjust as needed */
+  width: 26px;  /* adjust as needed */
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%; /* Makes it circular */
+}
+
+input:checked + .slider {
+  background-color: #98C199; /* Color when toggled */
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #98C199; /* Adds a focus effect when the switch is clicked or tabbed into */
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px); /* Moves the circle to the right when toggled, adjust as needed */
+}
+
+.slider-css {
+  float: right;
+}
+
+
