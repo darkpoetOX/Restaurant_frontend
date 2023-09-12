@@ -47,6 +47,28 @@ public class DataLoader implements ApplicationRunner{
         restaurants.add(new Restaurant("Circolo Popolare", Borough.WESTMINSTER, PriceRange.MEDIUM,5, List.of(dish2, dish5, dish9)));
         restaurants.add(new Restaurant("Hakkasan", Borough.KENSINGTONANDCHELSEA, PriceRange.HIGH, 5, List.of(dish1, dish4)));
         restaurants.add(new Restaurant("Van of Life", Borough.HACKNEY, PriceRange.LOW, 1, List.of(dish5, dish7, dish12, dish11, dish8)));
+        restaurants.add(new Restaurant("LEWISHAM££", Borough.LEWISHAM, PriceRange.MEDIUM, 5, List.of(dish12, dish13)));
+        restaurants.add(new Restaurant("LEWISHAM£££", Borough.LEWISHAM, PriceRange.HIGH, 5, List.of(dish12, dish13)));
+
+        restaurants.add(new Restaurant("Angelina", Borough.HACKNEY, PriceRange.HIGH, 4,List.of(dish12, dish13)));
+        restaurants.add(new Restaurant("Kulukulu Sushi", Borough.WESTMINSTER, PriceRange.LOW, 4, List.of(dish12, dish13)));
+        restaurants.add(new Restaurant("Rasa Sayang", Borough.WESTMINSTER, PriceRange.MEDIUM, 0, List.of(dish12, dish13)));
+        restaurants.add(new Restaurant("Yeye Noodle", Borough.WESTMINSTER, PriceRange.LOW, 3, List.of(dish12, dish13)));
+        restaurants.add(new Restaurant("Sushi Show", Borough.ISLINGTON, PriceRange.LOW, 5, List.of(dish12, dish13)));
+        restaurants.add(new Restaurant("Happy Lamb Hotpot", Borough.CAMDEN, PriceRange.MEDIUM, 3, List.of(dish12, dish13)));
+        restaurants.add(new Restaurant("Bullgogi", Borough.KENSINGTONANDCHELSEA, PriceRange.MEDIUM, 4, List.of(dish12, dish13)));
+        restaurants.add(new Restaurant("Dim Sum Duck", Borough.ISLINGTON, PriceRange.LOW, 2, List.of(dish12, dish13)));
+        restaurants.add(new Restaurant("Kintan Japanese BBQ", Borough.CAMDEN, PriceRange.MEDIUM, 5, List.of(dish12, dish13)));
+        restaurants.add(new Restaurant("Papa Noodle", Borough.CAMDEN, PriceRange.MEDIUM, 4, List.of(dish12, dish13)));
+        restaurants.add(new Restaurant("Eat of Eden", Borough.LAMBETH, PriceRange.MEDIUM, 3, List.of(dish12, dish13)));
+        restaurants.add(new Restaurant("Chin Chin labs", Borough.WESTMINSTER, PriceRange.LOW, 5,List.of(dish12, dish13)));
+        restaurants.add(new Restaurant("Rudys", Borough.WESTMINSTER, PriceRange.MEDIUM, 3, List.of(dish12, dish13)));
+        restaurants.add(new Restaurant("Tattu London", Borough.CAMDEN, PriceRange.HIGH, 4, List.of(dish12, dish13)));
+        restaurants.add(new Restaurant("Marugame Udon", Borough.BARNET, PriceRange.LOW, 3, List.of(dish12, dish13)));
+        restaurants.add(new Restaurant("Viet Cafe", Borough.SOUTHWARK, PriceRange.MEDIUM, 4,List.of(dish12, dish13)));
+        restaurants.add(new Restaurant("Gokyuzu", Borough.HARINGEY, PriceRange.MEDIUM, 3, List.of(dish12, dish13)));
+        restaurants.add(new Restaurant("Gopals Corner", Borough.TOWERHAMLETS, PriceRange.LOW, 4, List.of(dish12, dish13)));
+        restaurants.add(new Restaurant("J.J.Moon's-Wetherspoons", Borough.HILLINGDON, PriceRange.LOW, 0,List.of(dish12, dish13)));
         restaurantRepository.saveAll(restaurants);
 
     }

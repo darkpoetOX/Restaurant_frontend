@@ -11,6 +11,7 @@ public enum Borough {
     BRENT("Brent"),
     BROMLEY("Bromley"),
     CAMDEN("Camden"),
+    CITY("City"),
     CROYDON("Croydon"),
     EALING("Ealing"),
     ENFIELD("Enfield"),
