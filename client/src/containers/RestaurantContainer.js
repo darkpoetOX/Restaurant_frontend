@@ -41,6 +41,7 @@ const RestaurantContainer = () =>{
         if (!favouritesList.includes(restaurant)){
             const updatedFavourites = [...favouritesList, restaurant]
             setFavouritesList(updatedFavourites);
+            console.log(updatedFavourites);
         }
     }
 
@@ -48,22 +49,6 @@ const RestaurantContainer = () =>{
         const updatedFavourites = favouritesList.filter((restaurant) => restaurant.name !== deleteRestaurant.name)
         setFavouritesList(updatedFavourites)
     }
-
-    // const filterByPrice=(value)=>{
-    //     const originalList= [...restaurantList]
-    //     let filterByPriceList=[]
-    //     filterByPriceList=originalList.filter((restaurant)=> restaurant.priceRange===value)
-    //     setFilteredList(filterByPriceList);
-    //     // doesnt reset list when changing price range
-    // }
-    //
-    // const filterByBorough=(borough)=>{
-    //     // want to also filter along with the cost filter
-    //     const originalList= [...restaurantList]
-    //     let filterByBoroughList=[];
-    //     filterByBoroughList=originalList.filter((restaurant)=>restaurant.borough===borough);
-    //     setFilteredList(filterByBoroughList);
-    // }
 
     // Apply active filters to update filteredList
     const applyFilters = () => {
