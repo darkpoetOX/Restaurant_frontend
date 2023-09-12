@@ -2,13 +2,15 @@ import DishesList from "./DishesList"
 
 const Restaurant =({addToFav, restaurant})=>{
 
-
-    const dishCompenents= restaurant.dishes.map((dish,index)=>{
-        return <DishesList restaurant={restaurant} key={index} dish={restaurant.dishes[index]}/>
+    // this is the loop which retrieves all of the dishes of a specific restaurant as the dishes come in an array as a json object
+    const dishList = restaurant.dishes.map((dish,index)=>{
+        return <DishesList dish={dish} key={index}/>
     })
     return(
         <>
         <p>{restaurant.name}</p>
+        <p>{dishList}</p>
+
         <button onClick={() => addToFav(restaurant)}>❤️</button>
 
         </>
