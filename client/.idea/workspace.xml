@@ -5,11 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1a7b8f35-2363-475c-a5b7-ac7bf11f3438" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/containers/scratch" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/CustomerReviews.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CustomerReviews.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/FavouritesList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FavouritesList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Footer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/containers/RestaurantContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/RestaurantContainer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../server/src/main/java/com/bnta/annas_restaurant_recommender/components/DataLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/main/java/com/bnta/annas_restaurant_recommender/components/DataLoader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../server/src/main/java/com/bnta/annas_restaurant_recommender/models/Borough.java" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/main/java/com/bnta/annas_restaurant_recommender/models/Borough.java" afterDir="false" />

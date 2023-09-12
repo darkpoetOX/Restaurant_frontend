@@ -109,6 +109,7 @@ const RestaurantContainer = () =>{
             <NavBar />
             <HeroImage />
             <BoroughMap filterByBorough={filterByBorough} />
+            <p>{boroughFilter}</p>
             <button onClick={handleResetFilters}>Reset Filters</button>
             <div className="price-range-buttons">
                 <button value="LOW" onClick={()=>filterByPrice("LOW")}>£</button>
