@@ -16,9 +16,9 @@ const RestaurantContainer = () =>{
     const [filteredList, setFilteredList] = useState([]);
     const [favouritesList, setFavouritesList] = useState([]);
     const [dishesList, setDishesList] = useState([]);
-    const [filteredDishesList, setFilteredDishesList]=useState(null);
+    const [filteredDishesList, setFilteredDishesList]=useState([]);
 
-    const [priceFilter, setPriceFilter] = useState(null); // Price filter
+    const [priceFilter, setPriceFilter] = useState(null); // Price filterc
     const [boroughFilter, setBoroughFilter] = useState(null); // Borough filter
     const [cuisineFilter, setCuisineFilter]= useState(null);
     const [halal, setHalal]= useState(false);
@@ -323,9 +323,8 @@ const RestaurantContainer = () =>{
 
             </div>
             <div className="dishes">
-                <Carousel>
-                {filteredDishesList ? displayDishes() : <h3>Please select a restaurant</h3>}
-                </Carousel>
+
+                {(filteredDishesList.length !== 0)?  <Carousel> {displayDishes()} </Carousel>: <h3>Please select a restaurant</h3>}
                 </div>
 
             <CustomerReviews />
