@@ -7,6 +7,7 @@ import Footer from "../components/Footer";
 import HeroImage from "../components/HeroImage";
 import BoroughMap from "../components/BoroughMap";
 import { Carousel } from "react-bootstrap";
+import SideBar from "../components/SideBar";
 
 
 const RestaurantContainer = () =>{
@@ -45,6 +46,8 @@ const RestaurantContainer = () =>{
         "SOMALIAN",
         "VIETNAMESE",
         "ZIMBABWEAN"];
+
+    const [showSideBar, setShowSideBar] = useState(false);
 
 
 
@@ -241,7 +244,12 @@ const RestaurantContainer = () =>{
 
     return(
         <>
-            <NavBar />
+            <NavBar  />
+            {/*added a sidebar*/}
+            <div className="openSideBarButton">
+                <button onClick={() => setShowSideBar(!showSideBar)}>Open sidebar</button>
+            </div>
+            <SideBar show={showSideBar}/>
             <HeroImage />
             <hr></hr>
             <BoroughMap filterByBorough={filterByBorough} />
