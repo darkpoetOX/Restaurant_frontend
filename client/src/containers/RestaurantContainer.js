@@ -7,6 +7,7 @@ import Footer from "../components/Footer";
 import HeroImage from "../components/HeroImage";
 import BoroughMap from "../components/BoroughMap";
 import { Carousel } from "react-bootstrap";
+import Sidebar from "../components/sidebar";
 
 
 const RestaurantContainer = () =>{
@@ -45,6 +46,14 @@ const RestaurantContainer = () =>{
         "SOMALIAN",
         "VIETNAMESE",
         "ZIMBABWEAN"];
+
+    // for sidebar
+     const [sidebarOpen, setSidebarOpen] = useState(false);
+
+     // toggle sidebar
+    const toggleSidebar = () => {
+        setSidebarOpen(!sidebarOpen);
+    };
 
 
 
@@ -241,7 +250,10 @@ const RestaurantContainer = () =>{
 
     return(
         <>
-            <NavBar />
+            <NavBar toggleSidebar={toggleSidebar} />
+            <FavouritesList deleteFromFav={deleteFromFav} toggleSidebar={toggleSidebar} />
+            <Sidebar isOpen={sidebarOpen} toggleSidebar={toggleSidebar} />
+
             <HeroImage />
             <hr></hr>
             <BoroughMap filterByBorough={filterByBorough} />
