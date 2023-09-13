@@ -2,6 +2,7 @@
     width: 100%;
     height: 700px;
     position: relative;
+    object-fit: cover;
 }
 
 .custom-navbar {
@@ -52,7 +53,7 @@
 }
 
 body {
-    background-color: #dbd4d3;
+    background-color: #dbd4d3 !important;
 }
 
 .ResetButton {
@@ -72,6 +73,7 @@ body {
     transition: background-color 0.3s;
     border-radius: 24px;
     width: 150px;
+    height: 45px;
 }
 
 .ResetButton button:hover {
@@ -85,7 +87,7 @@ body {
     max-width: 800px;
     margin: 20px auto;
     border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    /* box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); */
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
@@ -98,6 +100,7 @@ body {
     padding: 15px;
     margin-bottom: 10px;
     border-radius: 5px;
+    height: 100px;
 }
 
 .EachRestaurant button {
@@ -166,5 +169,19 @@ input:checked + .slider:before {
     justify-content: center;
     flex-wrap: wrap;
 }
+
+.borough-name{
+    display: flex;
+    justify-content: center;
+    padding: 10px 20px;
+    background-color: #d2cca1;
+    color: #757780;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border-radius: 24px;
+    width: 300px;
+}
+
 
 

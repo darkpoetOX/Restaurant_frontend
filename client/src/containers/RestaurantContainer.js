@@ -14,6 +14,7 @@ const RestaurantContainer = () =>{
     const [restaurantList, setRestaurantList] = useState([]);
     const [filteredList, setFilteredList] = useState([]);
     const [favouritesList, setFavouritesList] = useState([]);
+    const [dishesList, setDishesList] = useState(null);
 
     const [priceFilter, setPriceFilter] = useState(null); // Price filter
     const [boroughFilter, setBoroughFilter] = useState(null); // Borough filter
@@ -91,28 +92,51 @@ const RestaurantContainer = () =>{
         setPriceFilter(null);
         setBoroughFilter(null);
         setFilteredList([...restaurantList]);
+        setDishesList(null);
     };
+
+    const ifTrue = (status) => {
+        if(status === true){
+            return "Yes";
+        }
+        return "No";
+    }
+
+    const displayDishes = () => {
+        const displayDish = dishesList.map((dish, index) => {
+            return <>
+                <h4>{dish.name}</h4>
+                <ul>
+                    <li>Vegetarian: {ifTrue(dish.vegetarian)}</li>
+                    <li>Vegan: {ifTrue(dish.vegen)}</li>
+                    <li>Dairy Free: {ifTrue(dish.dairyFree)}</li>
+                    <li>Halal: {ifTrue(dish.halal)}</li>
+                </ul>
+                </>;
+        });
+        return displayDish;
+    }
 
     return(
         <>
             <NavBar />
             <HeroImage />
+            <hr></hr>
             <BoroughMap filterByBorough={filterByBorough} />
-            <p>{boroughFilter}</p>
             <div className={"ResetButton"}>
+                <p className="borough-name">{boroughFilter ? boroughFilter : "Please select above"}</p>
                 <button onClick={handleResetFilters}> <strong>Reset Filters</strong> </button>
             </div>
 
             <div className="price-range-buttons">
-                <button value="LOW" onClick={()=>filterByPrice("LOW")}>£</button>
+                <button value="LOW" onClick={()=>{filterByPrice("LOW")}} >£</button>
                 <button value="MEDIUM" onClick={()=>filterByPrice("MEDIUM")}>££</button>
                 <button value="HIGH" onClick={()=>filterByPrice("HIGH")}>£££</button>
             </div>
             <FavouritesList deleteFromFav = {deleteFromFav}/>
             <div className={"RestaurantBox"}>
-            <RestaurantList addToFav = {addToFav} restaurants={filteredList} />
+            <RestaurantList addToFav = {addToFav} restaurants={filteredList} setDishesList={setDishesList}/>
             </div>
-
             <div className={"slider-css"}>
 
                 <div className="switch-container">
@@ -148,6 +172,8 @@ const RestaurantContainer = () =>{
                 </div>
 
             </div>
+            <div className="dishes">{dishesList ? displayDishes() : <h3>Please select a restaurant</h3>}</div>
+
 
             <CustomerReviews />
             <Footer />
