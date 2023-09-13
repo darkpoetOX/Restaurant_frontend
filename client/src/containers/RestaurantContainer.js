@@ -247,7 +247,7 @@ const RestaurantContainer = () =>{
             <NavBar  />
             {/*added a sidebar*/}
             <div className="openSideBarButton">
-                <button onClick={() => setShowSideBar(!showSideBar)}>Open sidebar</button>
+                <button className="circular-button" onClick={() => setShowSideBar(!showSideBar)}>❤️</button>
             </div>
             <SideBar show={showSideBar}/>
             <HeroImage />
