@@ -223,12 +223,15 @@ const RestaurantContainer = () =>{
         let page = 1;
         while(page <= Math.ceil(filteredDishesList.length/maxDishesPerCarousel)){
             const eachCarousel = filteredDishesList.filter((dish, index) => {
-                if(index >= (page-1)*maxDishesPerCarousel && index < page*maxDishesPerCarousel){
+                if(index >= (page-1)*maxDishesPerCarousel && index < page*maxDishesPerCarousel){ // index 0-4
                     return dish;
                 }
             })
             .map((dish, index) => {
-                    return <img src={'./Images/heroBanner1.png'} className={"images"}/> //replace with ${dish.name} in src url
+                    return <>
+                    <label className="dish-title">{dish.name}</label>
+                    <img src={'./Images/heroBanner1.png'} className={"images"}/>
+                    </>
             });
             finalCarousel.push(<Carousel.Item>{eachCarousel}</Carousel.Item>);
             page++;

@@ -45,7 +45,7 @@ public class DataLoader implements ApplicationRunner{
         restaurants.add(new Restaurant("Bob's Seafood Kitchen", Borough.SOUTHWARK, PriceRange.MEDIUM, 3, List.of(dish7, dish1)));
         restaurants.add(new Restaurant("Morley's", Borough.LEWISHAM, PriceRange.LOW, 5, List.of(dish12, dish13)));
         restaurants.add(new Restaurant("Circolo Popolare", Borough.WESTMINSTER, PriceRange.MEDIUM,5, List.of(dish2, dish5, dish9)));
-        restaurants.add(new Restaurant("Hakkasan", Borough.KENSINGTONANDCHELSEA, PriceRange.HIGH, 5, List.of(dish1, dish4,dish1, dish4,dish1, dish4,dish1, dish4,dish1, dish4,dish1, dish4)));
+        restaurants.add(new Restaurant("Hakkasan", Borough.KENSINGTONANDCHELSEA, PriceRange.HIGH, 5, List.of(dish1, dish5,dish9, dish3,dish4, dish6,dish12, dish13,dish12, dish10,dish9, dish4)));
         restaurants.add(new Restaurant("Van of Life", Borough.HACKNEY, PriceRange.LOW, 1, List.of(dish5, dish7, dish12, dish11, dish8)));
         restaurants.add(new Restaurant("LEWISHAM££", Borough.LEWISHAM, PriceRange.MEDIUM, 5, List.of(dish12, dish13)));
         restaurants.add(new Restaurant("LEWISHAM£££", Borough.LEWISHAM, PriceRange.HIGH, 5, List.of(dish12, dish13)));
