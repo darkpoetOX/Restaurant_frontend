@@ -6,6 +6,7 @@ import CustomerReviews from "../components/CustomerReviews";
 import Footer from "../components/Footer";
 import HeroImage from "../components/HeroImage";
 import BoroughMap from "../components/BoroughMap";
+import { Carousel } from "react-bootstrap";
 
 
 const RestaurantContainer = () =>{
@@ -15,7 +16,7 @@ const RestaurantContainer = () =>{
     const [filteredList, setFilteredList] = useState([]);
     const [favouritesList, setFavouritesList] = useState([]);
     const [dishesList, setDishesList] = useState([]);
-    const [filteredDishesList, setFilteredDishesList]=useState([]);
+    const [filteredDishesList, setFilteredDishesList]=useState(null);
 
     const [priceFilter, setPriceFilter] = useState(null); // Price filter
     const [boroughFilter, setBoroughFilter] = useState(null); // Borough filter
@@ -159,7 +160,7 @@ const RestaurantContainer = () =>{
     // Handle price filter
     const filterByPrice = (value) => {
         setPriceFilter(value); // Set price filter state
-        setDishesList(null);
+        setDishesList([]);
         setFilteredDishesList([]);
         //applyFilters(); // Apply filters to update filteredList  -- we took it out here to make it apply when we change state and applied it to useeffect
     };
@@ -167,7 +168,7 @@ const RestaurantContainer = () =>{
     // Handle borough filter
     const filterByBorough = (borough) => {
         setBoroughFilter(borough); // Set borough filter state
-        setDishesList(null);
+        setDishesList([]);
         setFilteredDishesList([]);
 
         //applyFilters(); // Apply filters to update filteredList -- we took it out here to make it apply when we change state and applied it to useeffect
@@ -175,7 +176,7 @@ const RestaurantContainer = () =>{
 
     const filterByCuisine = (cuisine) => {
         setCuisineFilter(cuisine);
-        setDishesList(null);
+        setDishesList([]);
         setFilteredDishesList([]);
 
     }
@@ -198,22 +199,41 @@ const RestaurantContainer = () =>{
         return "No";
     }
 
+    const maxDishesPerCarousel = 5;
+
+    // const displayDishes = () => {
+    //     const displayDish = filteredDishesList.map((dish, index) => {
+    //         return <>
+    //         <div className="each-dish">
+    //             <h4>{dish.name}</h4>
+    //             <ul>
+    //                 <li>Vegetarian: {ifTrue(dish.vegetarian)}</li>
+    //                 <li>Vegan: {ifTrue(dish.vegan)}</li>
+    //                 <li>Dairy Free: {ifTrue(dish.dairyFree)}</li>
+    //                 <li>Halal: {ifTrue(dish.halal)}</li>
+    //             </ul>
+    //         </div>
+    //             </>;
+    //     });
+    //     return displayDish;
+    // }
+    
     const displayDishes = () => {
-        const displayDish = filteredDishesList.map((dish, index) => {
-            
-            return <>
-            <div className="each-dish">
-                <h4>{dish.name}</h4>
-                <ul>
-                    <li>Vegetarian: {ifTrue(dish.vegetarian)}</li>
-                    <li>Vegan: {ifTrue(dish.vegan)}</li>
-                    <li>Dairy Free: {ifTrue(dish.dairyFree)}</li>
-                    <li>Halal: {ifTrue(dish.halal)}</li>
-                </ul>
-            </div>
-                </>;
-        });
-        return displayDish;
+        let finalCarousel = [];
+        let page = 1;
+        while(page <= Math.ceil(filteredDishesList.length/maxDishesPerCarousel)){
+            const eachCarousel = filteredDishesList.filter((dish, index) => {
+                if(index >= (page-1)*maxDishesPerCarousel && index < page*maxDishesPerCarousel){
+                    return dish;
+                }
+            })
+            .map((dish, index) => {
+                    return <img src={'./Images/heroBanner1.png'} className={"images"}/> //replace with ${dish.name} in src url
+            });
+            finalCarousel.push(<Carousel.Item>{eachCarousel}</Carousel.Item>);
+            page++;
+        }
+        return finalCarousel
     }
 
     return(
@@ -299,7 +319,11 @@ const RestaurantContainer = () =>{
                 </div>
 
             </div>
-            <div className="dishes">{filteredDishesList ? displayDishes() : <h3>Please select a restaurant</h3>}</div>
+            <div className="dishes">
+                <Carousel>
+                {filteredDishesList ? displayDishes() : <h3>Please select a restaurant</h3>}
+                </Carousel>
+                </div>
 
             <CustomerReviews />
             <Footer />

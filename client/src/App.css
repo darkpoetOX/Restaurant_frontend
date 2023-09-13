@@ -5,6 +5,10 @@
     object-fit: cover;
 }
 
+.images{
+    width: 20%;
+}
+
 .custom-navbar {
     position: absolute;
     left: 0;
