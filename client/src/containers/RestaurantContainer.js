@@ -70,7 +70,7 @@ const RestaurantContainer = () =>{
     useEffect(() => {
         applyFilters()
 
-    },[priceFilter,boroughFilter])
+    },[cuisineFilter,priceFilter,boroughFilter])
 
     useEffect(() => {
         fetchByCuisine()
@@ -94,10 +94,10 @@ const RestaurantContainer = () =>{
     // Apply active filters to update filteredList
     const applyFilters = () => {
         let filteredListCopy = [...restaurantList];
-        // if (cuisineFilter) {
-        //     fetchByCuisine()
-        //
-        // }
+        if (cuisineFilter) {
+            fetchByCuisine()
+        
+        }
 
         if (priceFilter) {
             filteredListCopy = filteredListCopy.filter(
@@ -130,15 +130,17 @@ const RestaurantContainer = () =>{
 
     const filterByCuisine = (cuisine) => {
         setCuisineFilter(cuisine);
-        setDishesList(null);
+        // setDishesList(null);
     }
 
     const handleResetFilters = () => {
         // Reset filter values
         setPriceFilter(null);
         setBoroughFilter(null);
+        setCuisineFilter(null);
         setFilteredList([...restaurantList]);
         setDishesList(null);
+
     };
 
     const ifTrue = (status) => {
@@ -180,8 +182,8 @@ const RestaurantContainer = () =>{
                 <button value="HIGH" onClick={()=>filterByPrice("HIGH")}>£££</button>
             </div>
             <div className="cuisine-selecter">
-                <select id="restaurantSelect" onChange={e => filterByCuisine(e.target.value)}>
-                    <option value="">--Please choose cuisine--</option>
+                <select id="restaurantSelect" onChange={(e)=> filterByCuisine(e.target.value)} value={cuisineFilter || ''}>
+                    <option value="">Please select cuisine</option>
                     {selectCuisines.map((cuisine, index) => (
                         <option key={index} value={cuisine}>
                             {cuisine}
