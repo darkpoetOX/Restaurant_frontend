@@ -157,8 +157,10 @@ const RestaurantContainer = () =>{
     }
 
     // Handle price filter
-    const filterByPrice = (value) => {setPriceFilter(value); // Set price filter state
+    const filterByPrice = (value) => {
+        setPriceFilter(value); // Set price filter state
         setDishesList(null);
+        setFilteredDishesList([]);
         //applyFilters(); // Apply filters to update filteredList  -- we took it out here to make it apply when we change state and applied it to useeffect
     };
 
@@ -166,6 +168,7 @@ const RestaurantContainer = () =>{
     const filterByBorough = (borough) => {
         setBoroughFilter(borough); // Set borough filter state
         setDishesList(null);
+        setFilteredDishesList([]);
 
         //applyFilters(); // Apply filters to update filteredList -- we took it out here to make it apply when we change state and applied it to useeffect
     };
@@ -173,6 +176,8 @@ const RestaurantContainer = () =>{
     const filterByCuisine = (cuisine) => {
         setCuisineFilter(cuisine);
         setDishesList(null);
+        setFilteredDishesList([]);
+
     }
 
     const handleResetFilters = () => {
@@ -181,7 +186,8 @@ const RestaurantContainer = () =>{
         setBoroughFilter(null);
         setCuisineFilter(null);
         setFilteredList([...restaurantList]);
-        setDishesList(null);
+        setDishesList([]);
+        setFilteredDishesList([]);
 
     };
 
@@ -194,14 +200,17 @@ const RestaurantContainer = () =>{
 
     const displayDishes = () => {
         const displayDish = filteredDishesList.map((dish, index) => {
+            
             return <>
+            <div className="each-dish">
                 <h4>{dish.name}</h4>
                 <ul>
                     <li>Vegetarian: {ifTrue(dish.vegetarian)}</li>
-                    <li>Vegan: {ifTrue(dish.vegen)}</li>
+                    <li>Vegan: {ifTrue(dish.vegan)}</li>
                     <li>Dairy Free: {ifTrue(dish.dairyFree)}</li>
                     <li>Halal: {ifTrue(dish.halal)}</li>
                 </ul>
+            </div>
                 </>;
         });
         return displayDish;
