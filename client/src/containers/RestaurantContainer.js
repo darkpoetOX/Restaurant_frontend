@@ -14,11 +14,16 @@ const RestaurantContainer = () =>{
     const [restaurantList, setRestaurantList] = useState([]);
     const [filteredList, setFilteredList] = useState([]);
     const [favouritesList, setFavouritesList] = useState([]);
-    const [dishesList, setDishesList] = useState(null);
+    const [dishesList, setDishesList] = useState([]);
+    const [filteredDishesList, setFilteredDishesList]=useState([]);
 
     const [priceFilter, setPriceFilter] = useState(null); // Price filter
     const [boroughFilter, setBoroughFilter] = useState(null); // Borough filter
     const [cuisineFilter, setCuisineFilter]= useState(null);
+    const [halal, setHalal]= useState(false);
+    const [vegan, setVegan]= useState(false);
+    const [vegetarian, setVegetarian]= useState(false);
+    const [dairyFree, setDairyFree]= useState(false);
     const [selectedRestaurant, setSelectedRestaurant] = useState(null); // restaurant selected
     const selectCuisines = ["AMERICAN",
         "BRITISH",
@@ -72,6 +77,9 @@ const RestaurantContainer = () =>{
 
     },[cuisineFilter,priceFilter,boroughFilter])
 
+    useEffect(()=>{
+        applyDietaryFilters()
+    },[halal,vegan,vegetarian,dairyFree])
     // useEffect(() => {
     //     fetchByCuisine()
     // },[cuisineFilter])
@@ -122,6 +130,32 @@ const RestaurantContainer = () =>{
         setFilteredList(filteredListCopy);
     };
 
+    const applyDietaryFilters=()=>{
+        let filteredDishesListCopy = [...dishesList];
+        if (halal){
+            filteredDishesListCopy = filteredDishesListCopy.filter(
+                (dish) => dish.halal === true
+            );
+        }
+        if (vegan){
+            filteredDishesListCopy = filteredDishesListCopy.filter(
+                (dish) => dish.vegan === true
+            );
+        }
+        if (vegetarian){
+            filteredDishesListCopy = filteredDishesListCopy.filter(
+                (dish) => dish.vegetarian === true
+            );
+        }
+        if (dairyFree){
+            filteredDishesListCopy = filteredDishesListCopy.filter(
+                (dish) => dish.dairyFree === true
+            );
+        }
+        setFilteredDishesList(filteredDishesListCopy)
+
+    }
+
     // Handle price filter
     const filterByPrice = (value) => {setPriceFilter(value); // Set price filter state
         setDishesList(null);
@@ -159,7 +193,7 @@ const RestaurantContainer = () =>{
     }
 
     const displayDishes = () => {
-        const displayDish = dishesList.map((dish, index) => {
+        const displayDish = filteredDishesList.map((dish, index) => {
             return <>
                 <h4>{dish.name}</h4>
                 <ul>
@@ -219,13 +253,13 @@ const RestaurantContainer = () =>{
             </div>
             <FavouritesList deleteFromFav = {deleteFromFav}/>
             <div className={"RestaurantBox"}>
-            <RestaurantList addToFav = {addToFav} restaurants={filteredList} setDishesList={setDishesList}/>
+            <RestaurantList addToFav = {addToFav} restaurants={filteredList} setDishesList={setDishesList} setFilteredDishesList={setFilteredDishesList}/>
             </div>
             <div className={"slider-css"}>
 
                 <div className="switch-container">
                     <label className="switch">
-                        <input type="checkbox"/>
+                        <input type="checkbox" onChange={()=>setHalal(!halal)}/>
                         <span className="slider round"></span>
                     </label>
                     <span className="switch-name">Halal</span>
@@ -233,7 +267,7 @@ const RestaurantContainer = () =>{
 
                 <div className="switch-container">
                     <label className="switch">
-                        <input type="checkbox" name="vegan"/>
+                        <input type="checkbox" name="vegan" onChange={()=>setVegan(!vegan)}/>
                         <span className="slider round"></span>
                     </label>
                     <span className="switch-name">Vegan</span>
@@ -241,7 +275,7 @@ const RestaurantContainer = () =>{
 
                 <div className="switch-container">
                     <label className="switch">
-                        <input type="checkbox"/>
+                        <input type="checkbox" onChange={()=>setVegetarian(!vegetarian)}/>
                         <span className="slider round"></span>
                     </label>
                     <span className="switch-name">Vegetarian</span>
@@ -249,14 +283,14 @@ const RestaurantContainer = () =>{
 
                 <div className="switch-container">
                     <label className="switch">
-                        <input type="checkbox"/>
+                        <input type="checkbox" onChange={()=>setDairyFree(!dairyFree)}/>
                         <span className="slider round"></span>
                     </label>
                     <span className="switch-name">Dairy Free</span>
                 </div>
 
             </div>
-            <div className="dishes">{dishesList ? displayDishes() : <h3>Please select a restaurant</h3>}</div>
+            <div className="dishes">{filteredDishesList ? displayDishes() : <h3>Please select a restaurant</h3>}</div>
 
             <CustomerReviews />
             <Footer />

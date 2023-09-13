@@ -1,6 +1,6 @@
 import DishesList from "./DishesList"
 
-const Restaurant =({addToFav, restaurant, setDishesList})=>{
+const Restaurant =({addToFav, restaurant, setDishesList, setFilteredDishesList})=>{
 
     // this is the loop which retrieves all of the dishes of a specific restaurant as the dishes come in an array as a json object
     const dishList = restaurant.dishes.map((dish,index)=>{
@@ -9,6 +9,7 @@ const Restaurant =({addToFav, restaurant, setDishesList})=>{
 
     const selectRestaruant = () => {
         setDishesList(restaurant.dishes);
+        setFilteredDishesList(restaurant.dishes)
     }
 
     return(
