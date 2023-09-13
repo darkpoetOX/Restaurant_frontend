@@ -51,6 +51,11 @@
     background-color: #98c199;
     color: white;
 }
+.price-range-buttons button:focus {
+    background-color: #757780;  /* or any color to indicate it's active */
+    color: white;
+}
+
 
 body {
     background-color: #dbd4d3 !important;
@@ -181,6 +186,24 @@ input:checked + .slider:before {
     transition: background-color 0.3s;
     border-radius: 24px;
     width: 300px;
+}
+
+.cuisine-selecter {
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cuisine-selecter label {
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.cuisine-selecter select {
+    width: 200px;
+    padding: 5px;
+    font-size: 16px;
 }
 
 

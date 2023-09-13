@@ -18,6 +18,28 @@ const RestaurantContainer = () =>{
 
     const [priceFilter, setPriceFilter] = useState(null); // Price filter
     const [boroughFilter, setBoroughFilter] = useState(null); // Borough filter
+    const [cuisineFilter, setCuisineFilter]= useState(null);
+    const [selectedRestaurant, setSelectedRestaurant] = useState(null); // restaurant selected
+    const selectCuisines = ["AMERICAN",
+        "BRITISH",
+       "CHINESE",
+        "FRENCH",
+        "GREEK",
+        "INDIAN",
+        "ITALIAN",
+        "JAPANESE",
+        "KENYAN",
+        "KOREAN",
+        "MEDITERRANEAN",
+        "MEXICAN",
+        "NIGERIAN",
+        "PAKISTANI",
+        "THAI",
+        "TURKISH",
+        "SOMALIAN",
+        "VIETNAMESE",
+        "ZIMBABWEAN"];
+
 
 
     // fetch restaurant data from data loader
@@ -26,6 +48,14 @@ const RestaurantContainer = () =>{
         const data = await response.json()
         setRestaurantList(data);
         setFilteredList(data);
+        console.log(data);
+
+
+    }
+    const fetchByCuisine = async () =>{
+        const response = await fetch("http://localhost:8080/restaurants?cuisine=" +cuisineFilter);
+        const data = await response.json()
+       setFilteredList(data);
         console.log(data);
 
 
@@ -41,6 +71,11 @@ const RestaurantContainer = () =>{
         applyFilters()
 
     },[priceFilter,boroughFilter])
+
+    useEffect(() => {
+        fetchByCuisine()
+
+    },[cuisineFilter])
 
 
     const addToFav = (restaurant) => {
@@ -59,6 +94,10 @@ const RestaurantContainer = () =>{
     // Apply active filters to update filteredList
     const applyFilters = () => {
         let filteredListCopy = [...restaurantList];
+        // if (cuisineFilter) {
+        //     fetchByCuisine()
+        //
+        // }
 
         if (priceFilter) {
             filteredListCopy = filteredListCopy.filter(
@@ -76,16 +115,23 @@ const RestaurantContainer = () =>{
     };
 
     // Handle price filter
-    const filterByPrice = (value) => {
-        setPriceFilter(value); // Set price filter state
+    const filterByPrice = (value) => {setPriceFilter(value); // Set price filter state
+        setDishesList(null);
         //applyFilters(); // Apply filters to update filteredList  -- we took it out here to make it apply when we change state and applied it to useeffect
     };
 
     // Handle borough filter
     const filterByBorough = (borough) => {
         setBoroughFilter(borough); // Set borough filter state
+        setDishesList(null);
+
         //applyFilters(); // Apply filters to update filteredList -- we took it out here to make it apply when we change state and applied it to useeffect
     };
+
+    const filterByCuisine = (cuisine) => {
+        setCuisineFilter(cuisine);
+        setDishesList(null);
+    }
 
     const handleResetFilters = () => {
         // Reset filter values
@@ -133,6 +179,16 @@ const RestaurantContainer = () =>{
                 <button value="MEDIUM" onClick={()=>filterByPrice("MEDIUM")}>££</button>
                 <button value="HIGH" onClick={()=>filterByPrice("HIGH")}>£££</button>
             </div>
+            <div className="cuisine-selecter">
+                <select id="restaurantSelect" onChange={e => filterByCuisine(e.target.value)}>
+                    <option value="">--Please choose cuisine--</option>
+                    {selectCuisines.map((cuisine, index) => (
+                        <option key={index} value={cuisine}>
+                            {cuisine}
+                        </option>
+                    ))}
+                </select>
+            </div>
             <FavouritesList deleteFromFav = {deleteFromFav}/>
             <div className={"RestaurantBox"}>
             <RestaurantList addToFav = {addToFav} restaurants={filteredList} setDishesList={setDishesList}/>
@@ -173,7 +229,6 @@ const RestaurantContainer = () =>{
 
             </div>
             <div className="dishes">{dishesList ? displayDishes() : <h3>Please select a restaurant</h3>}</div>
-
 
             <CustomerReviews />
             <Footer />
