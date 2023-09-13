@@ -70,11 +70,11 @@ const RestaurantContainer = () =>{
     useEffect(() => {
         applyFilters()
 
-    },[priceFilter,boroughFilter])
+    },[cuisineFilter,priceFilter,boroughFilter])
 
-    useEffect(() => {
-        fetchByCuisine()
-    },[cuisineFilter])
+    // useEffect(() => {
+    //     fetchByCuisine()
+    // },[cuisineFilter])
 
 
     const addToFav = (restaurant) => {
@@ -97,6 +97,7 @@ const RestaurantContainer = () =>{
         //     fetchByCuisine()
         
         // }
+       
 
         if (priceFilter) {
             filteredListCopy = filteredListCopy.filter(
@@ -109,6 +110,14 @@ const RestaurantContainer = () =>{
                 (restaurant) => restaurant.borough === boroughFilter
             );
         }
+        if (cuisineFilter) {
+            // want to get restaurants 
+            // map through the dishes of each reatuarant 
+            // then match the cuisine
+            filteredListCopy = filteredListCopy.filter( (restaurant) => {
+                return restaurant.dishes.some((dish) => dish.cuisines === cuisineFilter)
+            })
+          }
 
         setFilteredList(filteredListCopy);
     };
@@ -129,7 +138,7 @@ const RestaurantContainer = () =>{
 
     const filterByCuisine = (cuisine) => {
         setCuisineFilter(cuisine);
-        // setDishesList(null);
+        setDishesList(null);
     }
 
     const handleResetFilters = () => {
