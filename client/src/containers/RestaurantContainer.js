@@ -70,11 +70,10 @@ const RestaurantContainer = () =>{
     useEffect(() => {
         applyFilters()
 
-    },[cuisineFilter,priceFilter,boroughFilter])
+    },[priceFilter,boroughFilter])
 
     useEffect(() => {
         fetchByCuisine()
-
     },[cuisineFilter])
 
 
@@ -94,10 +93,10 @@ const RestaurantContainer = () =>{
     // Apply active filters to update filteredList
     const applyFilters = () => {
         let filteredListCopy = [...restaurantList];
-        if (cuisineFilter) {
-            fetchByCuisine()
+        // if (cuisineFilter) {
+        //     fetchByCuisine()
         
-        }
+        // }
 
         if (priceFilter) {
             filteredListCopy = filteredListCopy.filter(
@@ -177,9 +176,27 @@ const RestaurantContainer = () =>{
             </div>
 
             <div className="price-range-buttons">
-                <button value="LOW" onClick={()=>{filterByPrice("LOW")}} >£</button>
+            <button value="LOW" onClick={() => filterByPrice("LOW")}
+            style={{ backgroundColor: priceFilter === "LOW" ? '#98c199' : '#d2cca1' }} >
+            £
+            </button>
+            <button 
+            value="MEDIUM" 
+            onClick={() => filterByPrice("MEDIUM")}
+            style={{ backgroundColor: priceFilter === "MEDIUM" ? '#98c199' : '#d2cca1' }}
+            >
+            ££
+            </button>
+            <button 
+            value="HIGH" 
+            onClick={() => filterByPrice("HIGH")}
+            style={{ backgroundColor: priceFilter === "HIGH" ? '#98c199' : '#d2cca1' }}
+            >
+                £££
+            </button>
+                {/* <button value="LOW" onClick={()=>{filterByPrice("LOW")}} >£</button>
                 <button value="MEDIUM" onClick={()=>filterByPrice("MEDIUM")}>££</button>
-                <button value="HIGH" onClick={()=>filterByPrice("HIGH")}>£££</button>
+                <button value="HIGH" onClick={()=>filterByPrice("HIGH")}>£££</button> */}
             </div>
             <div className="cuisine-selecter">
                 <select id="restaurantSelect" onChange={(e)=> filterByCuisine(e.target.value)} value={cuisineFilter || ''}>
