@@ -61,7 +61,9 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-around;
-    background-color: rgba(0, 0, 0, 0);
+    /*transparent navbar*/
+    /*background-color: rgba(0, 0, 0, 0);*/
+    background-color: lightblue; /* Adding this to test button for sidebar*/
     z-index: 9999;
     font-size: 1.1vw;
     color: white; /* Adding this for better visibility */
@@ -253,6 +255,58 @@ input:checked + .slider:before {
     padding: 5px;
     font-size: 16px;
 }
+
+
+
+/* SIDEBAR CSS */
+.sidenav {
+    width: 240px;
+    background: #757780;
+    position: fixed;
+    height: 100%;
+    padding: 0 30px;
+    right: -240px; /* Start with the sidebar completely hidden to the right */
+    transition: all 0.6s;
+    z-index: 998;
+}
+
+.sidenav.active {
+    right: 0; /* When active, move the sidebar to the right edge of the screen */
+}
+
+/* 6min52 ul css mods */
+/* I want the openSideBarButton to be at the top right of the screen */
+.openSideBarButton {
+    position: fixed; /* Use "fixed" to keep it in the same position while scrolling */
+    top: 0;
+    right: 0;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 9999;
+}
+
+.circular-button {
+    width: 40px; /* Adjust the width to make it circular */
+    height: 40px; /* Same as width to make it circular */
+    border-radius: 50%; /* Makes the button circular */
+    background-color: darkgray; /* Set the button's background color */
+    color: #fff; /* Set the text color */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+
+/* Add hover effect if desired */
+.circular-button:hover {
+    background-color: white; /* Change color on hover */
+}
+
+
+
 
 
 
