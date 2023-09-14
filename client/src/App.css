@@ -1,6 +1,6 @@
-.App{
+.App, .custom-navbar-button{
     font-family: 'Caveat', cursive !important;
-    font-size: larger;
+    font-size: larger !important;
 }
 
 .hero-image {
@@ -78,7 +78,7 @@
     margin: 2em;
 }
 
-.custom-navbar {
+.custom-navbar, .custom-navbar-button {
     position: absolute;
     left: 0;
     width: 100%;
@@ -95,12 +95,13 @@
     color: white; /* Adding this for better visibility */
 }
 
-.custom-navbar a, .custom-navbar Button {
-    text-decoration: none;
-    color: rgb(15, 106, 15); /* Text color for navbar links */
-    margin-left: 10em;
-    font-size: 1.5vw;
+.custom-navbar a, .custom-navbar-button {
+    text-decoration: none !important;
+    color: rgb(15, 106, 15) !important; /* Text color for navbar links */
+    margin-left: 10em ;
+    font-size: 1.5vw !important;
 }
+
 
 .custom-navbar a:hover {
     color: white;

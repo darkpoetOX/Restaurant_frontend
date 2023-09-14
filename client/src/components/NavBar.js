@@ -37,8 +37,8 @@ const NavBar = () => {
             <nav className="custom-navbar">
                 <img className="logo" src="/Images/logo.png"/>
                 <a href="">About Us</a>
-                <Button onClick={handleOpenModal}>Submit Restaurant</Button>
-
+                <Button className={"custom-navbar-button"} onClick={handleOpenModal} 
+                style={{ textTransform: 'none'}} disableRipple>Submit Restaurant</Button>
                 <Modal
                 open={openModal}
                 onClose={handleCloseModal}
@@ -46,8 +46,8 @@ const NavBar = () => {
                 aria-describedby="modal-modal-description"
                 >
                 <Box sx={style}>
-                   <Typography>
-                    <h4>Submit Restaurant</h4>
+                   <Typography >
+                    <h4>Submit restaurant</h4>
                    </Typography>
                     <SubmitRestaurantForm handleClose={handleCloseModal} />
                 </Box>
