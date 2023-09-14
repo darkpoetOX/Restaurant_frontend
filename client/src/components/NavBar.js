@@ -46,7 +46,9 @@ const NavBar = () => {
                 aria-describedby="modal-modal-description"
                 >
                 <Box sx={style}>
-                   
+                   <Typography>
+                    <h4>Submit Restaurant</h4>
+                   </Typography>
                     <SubmitRestaurantForm handleClose={handleCloseModal} />
                 </Box>
                 </Modal> 

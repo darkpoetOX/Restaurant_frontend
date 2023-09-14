@@ -10,7 +10,6 @@ const SubmitRestaurantForm = ({ handleClose }) => {
 
   return (
     <div>
-      <h2>Submit Restaurant Form</h2>
       <form action="/action_page.php">
         <label for="rname">Restaurant name:</label><br/>
         <input type="text" id="rname" value=""/>
