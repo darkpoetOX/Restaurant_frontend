@@ -6,7 +6,8 @@ const SideBar = ({show ,favourites, deleteFromFav}) => {
 
   return (
     <div className={show ? 'sidenav active':'sidenav'}>
-        <FavouritesList favourites={favourites} deleteFromFav = {deleteFromFav} />
+        <h3>Favourite Restaurants</h3>
+        <FavouritesList className="favouriteList" favourites={favourites} deleteFromFav = {deleteFromFav} />
         {/*<ul>*/}
         {/*    <li>*/}
         {/*        <a href="">Home</a>*/}
