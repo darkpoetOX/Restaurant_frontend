@@ -9,7 +9,7 @@ const Restaurant =({addToFav, restaurant, setDishesList, updateFilteredDishesLis
 
     const selectRestaruant = () => {
         setDishesList(restaurant.dishes);
-        updateFilteredDishesList(restaurant.dishes)
+        updateFilteredDishesList(restaurant.dishes);
     }
 
     return(

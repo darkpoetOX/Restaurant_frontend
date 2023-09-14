@@ -85,7 +85,7 @@ const RestaurantContainer = () =>{
 
     useEffect(()=>{
         applyDietaryFilters()
-    },[halal,vegan,vegetarian,dairyFree])
+    },[halal,vegan,vegetarian,dairyFree, filteredDishesList])
     // useEffect(() => {
     //     fetchByCuisine()
     // },[cuisineFilter])
@@ -194,6 +194,10 @@ const RestaurantContainer = () =>{
         setFilteredList([...restaurantList]);
         setDishesList([]);
         setFilteredDishesList([]);
+        setHalal(false);
+        setVegan(false);
+        setVegetarian(false);
+        setDairyFree(false);
 
     };
 
@@ -297,7 +301,7 @@ const RestaurantContainer = () =>{
 
                 <div className="switch-container">
                     <label className="switch">
-                        <input type="checkbox" onChange={()=>setHalal(!halal)}/>
+                        <input type="checkbox" checked={halal} onChange={()=>setHalal(!halal)}/>
                         <span className="slider round"></span>
                     </label>
                     <span className="switch-name">Halal</span>
@@ -305,7 +309,7 @@ const RestaurantContainer = () =>{
 
                 <div className="switch-container">
                     <label className="switch">
-                        <input type="checkbox" name="vegan" onChange={()=>setVegan(!vegan)}/>
+                        <input type="checkbox" checked={vegan} name="vegan" onChange={()=>setVegan(!vegan)}/>
                         <span className="slider round"></span>
                     </label>
                     <span className="switch-name">Vegan</span>
@@ -313,7 +317,7 @@ const RestaurantContainer = () =>{
 
                 <div className="switch-container">
                     <label className="switch">
-                        <input type="checkbox" onChange={()=>setVegetarian(!vegetarian)}/>
+                        <input type="checkbox" checked={vegetarian} onChange={()=>setVegetarian(!vegetarian)}/>
                         <span className="slider round"></span>
                     </label>
                     <span className="switch-name">Vegetarian</span>
@@ -321,7 +325,7 @@ const RestaurantContainer = () =>{
 
                 <div className="switch-container">
                     <label className="switch">
-                        <input type="checkbox" onChange={()=>setDairyFree(!dairyFree)}/>
+                        <input type="checkbox" checked={dairyFree} onChange={()=>setDairyFree(!dairyFree)}/>
                         <span className="slider round"></span>
                     </label>
                     <span className="switch-name">Dairy Free</span>
