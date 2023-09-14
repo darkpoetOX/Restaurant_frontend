@@ -38,7 +38,7 @@ public class DataLoader implements ApplicationRunner{
         Dish dish11 = new Dish("Chicken Souvlaki Banh Mi", false, false, false, true,Cuisine.GREEK);
         Dish dish12 = new Dish("Chicken wings and chips", false, false, false, true, Cuisine.BRITISH);
         Dish dish13 = new Dish("Wagyu Burger and chips", false, false, false, true, Cuisine.JAPANESE);
-        Dish dish14 = new Dish("Sushi", false, false, true, true, Cuisine.JAPANESE);
+        Dish dish14 = new Dish("Sushi", true, true, true, true, Cuisine.JAPANESE);
         Dish dish15 = new Dish("Focaccia", true, true, false, true, Cuisine.ITALIAN);
         Dish dish16 = new Dish("Raviolo", true, true, false, true, Cuisine.ITALIAN);
         Dish dish17 = new Dish("Lobster", true, false, false, true, Cuisine.FRENCH);
@@ -73,13 +73,13 @@ public class DataLoader implements ApplicationRunner{
                 dish34, dish35, dish36, dish37, dish38, dish39, dish40, dish41, dish42));
 
         List<Restaurant> restaurants = new ArrayList<>();
-        restaurants.add(new Restaurant("Bob's Seafood Kitchen", Borough.SOUTHWARK, PriceRange.MEDIUM, 3, List.of(dish7, dish1)));
-        restaurants.add(new Restaurant("Morley's", Borough.LEWISHAM, PriceRange.LOW, 5, List.of(dish12, dish13)));
-        restaurants.add(new Restaurant("Circolo Popolare", Borough.WESTMINSTER, PriceRange.MEDIUM,5, List.of(dish2, dish5, dish9)));
-        restaurants.add(new Restaurant("Hakkasan", Borough.KENSINGTONANDCHELSEA, PriceRange.HIGH, 5, List.of(dish1, dish4, dish5, dish6, dish7, dish8, dish9)));
-        restaurants.add(new Restaurant("Van of Life", Borough.HACKNEY, PriceRange.LOW, 1, List.of(dish5, dish7, dish12, dish11, dish8)));
-        restaurants.add(new Restaurant("LEWISHAM££", Borough.LEWISHAM, PriceRange.MEDIUM, 5, List.of(dish12, dish13,dish23)));
-        restaurants.add(new Restaurant("LEWISHAM£££", Borough.LEWISHAM, PriceRange.HIGH, 5, List.of(dish12, dish13,dish33,dish4,dish15)));
+        restaurants.add(new Restaurant("Bob's Seafood Kitchen", Borough.SOUTHWARK, PriceRange.MEDIUM, 3, List.of(dish1, dish17, dish22, dish35,dish39)));
+        restaurants.add(new Restaurant("Morley's", Borough.LEWISHAM, PriceRange.LOW, 5, List.of(dish34, dish35,dish12,dish40,dish42,dish38)));
+        restaurants.add(new Restaurant("Circolo Popolare", Borough.WESTMINSTER, PriceRange.MEDIUM,5, List.of(dish2,dish4, dish13, dish15,dish16,dish26, dish36, dish39,dish37)));
+        restaurants.add(new Restaurant("Hakkasan", Borough.KENSINGTONANDCHELSEA, PriceRange.HIGH, 5, List.of(dish2, dish4, dish15, dish16, dish1, dish37, dish22)));
+        restaurants.add(new Restaurant("Van of Life", Borough.HACKNEY, PriceRange.LOW, 1, List.of(dish3, dish5, dish7, dish9, dish10,dish33,dish35)));
+        restaurants.add(new Restaurant("Nandos-Lewisham", Borough.LEWISHAM, PriceRange.MEDIUM, 5, List.of(dish12, dish13,dish23)));
+        restaurants.add(new Restaurant("Franco Manca", Borough.LEWISHAM, PriceRange.HIGH, 5, List.of(dish12, dish13,dish33,dish4,dish15)));
 
         restaurants.add(new Restaurant("Angelina", Borough.HACKNEY, PriceRange.HIGH, 4,List.of(dish12, dish13)));
         restaurants.add(new Restaurant("Kulukulu Sushi", Borough.WESTMINSTER, PriceRange.LOW, 4, List.of(dish12, dish13)));
