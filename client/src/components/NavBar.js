@@ -35,7 +35,7 @@ const NavBar = () => {
 
     return(
             <nav className="custom-navbar">
-                <h1>Anna's Recommends</h1>
+                <img className="logo" src="/Images/logo.png"/>
                 <a href="">About Us</a>
                 <Button onClick={handleOpenModal}>Submit Restaurant</Button>
 
