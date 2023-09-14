@@ -1,17 +1,18 @@
+import React from "react";
 import FavouriteRestaurant from "./FavouriteRestaurant";
 
 const FavouritesList = ({ favourites, deleteFromFav }) => {
-    const favouriteRestaurants = favourites.map((restaurant, index) => (
-        <li key={index}>
-            {/* wrapped each FavouriteRestaurant component with an individual <li> element. T*/}
+    const favouriteRestaurants = favourites.map((restaurant) => (
+        <div className="restaurant-box" key={restaurant.id}>
             <FavouriteRestaurant restaurant={restaurant} deleteFromFav={deleteFromFav} />
-        </li>
+        </div>
     ));
 
-    return <ul>{favouriteRestaurants}</ul>;
+    return <div>{favouriteRestaurants}</div>;
 };
 
 export default FavouritesList;
+
 
 
 
