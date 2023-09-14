@@ -324,7 +324,7 @@ const RestaurantContainer = () =>{
             </div>
             <div className="dishes">
 
-                {(filteredDishesList.length !== 0)?  <Carousel interval={null}> {displayDishes()} </Carousel>: <h3>Please select a restaurant</h3>}
+                {(filteredDishesList.length !== 0)?  <Carousel interval={null}> {displayDishes()} </Carousel>: <h3 className="please-select">Please select a restaurant</h3>}
                 </div>
 
             <CustomerReviews />

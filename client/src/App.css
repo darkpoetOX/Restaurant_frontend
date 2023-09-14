@@ -47,7 +47,11 @@
     z-index: 9999;
 }
 
-
+.please-select{
+    display: flex;
+    justify-content: center;
+    margin: 2em;
+}
 
 .custom-navbar {
     position: absolute;
