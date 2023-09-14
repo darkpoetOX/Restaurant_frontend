@@ -34,20 +34,21 @@ const RestaurantContainer = () =>{
        "CHINESE",
         "FRENCH",
         "GREEK",
-        "INDIAN",
+        // "INDIAN",
         "ITALIAN",
         "JAPANESE",
-        "KENYAN",
-        "KOREAN",
+        // "KENYAN",
+        // "KOREAN",
         "MEDITERRANEAN",
         "MEXICAN",
-        "NIGERIAN",
-        "PAKISTANI",
+        // "NIGERIAN",
+        // "PAKISTANI",
         "THAI",
-        "TURKISH",
-        "SOMALIAN",
+        // "TURKISH",
+        // "SOMALIAN",
         "VIETNAMESE",
-        "ZIMBABWEAN"];
+        // "ZIMBABWEAN"
+        ];
 
     const [showSideBar, setShowSideBar] = useState(false);
 
@@ -59,14 +60,6 @@ const RestaurantContainer = () =>{
         const data = await response.json()
         setRestaurantList(data);
         setFilteredList(data);
-        console.log(data);
-
-
-    }
-    const fetchByCuisine = async () =>{
-        const response = await fetch("http://localhost:8080/restaurants?cuisine=" +cuisineFilter);
-        const data = await response.json()
-       setFilteredList(data);
         console.log(data);
 
 
@@ -86,9 +79,6 @@ const RestaurantContainer = () =>{
     useEffect(()=>{
         applyDietaryFilters()
     },[halal,vegan,vegetarian,dairyFree, filteredDishesList])
-    // useEffect(() => {
-    //     fetchByCuisine()
-    // },[cuisineFilter])
 
 
     const addToFav = (restaurant) => {
@@ -107,12 +97,6 @@ const RestaurantContainer = () =>{
     // Apply active filters to update filteredList
     const applyFilters = () => {
         let filteredListCopy = [...restaurantList];
-        // if (cuisineFilter) {
-        //     fetchByCuisine()
-        
-        // }
-       
-
         if (priceFilter) {
             filteredListCopy = filteredListCopy.filter(
                 (restaurant) => restaurant.priceRange === priceFilter
@@ -125,15 +109,13 @@ const RestaurantContainer = () =>{
             );
         }
         if (cuisineFilter) {
-            // want to get restaurants 
-            // map through the dishes of each reatuarant 
-            // then match the cuisine
             filteredListCopy = filteredListCopy.filter( (restaurant) => {
                 return restaurant.dishes.some((dish) => dish.cuisines === cuisineFilter)
             })
           }
 
         setFilteredList(filteredListCopy);
+        setSelectedRestaurant(null);
     };
 
     const applyDietaryFilters=()=>{
@@ -198,15 +180,9 @@ const RestaurantContainer = () =>{
         setVegan(false);
         setVegetarian(false);
         setDairyFree(false);
+        setSelectedRestaurant(null);
 
     };
-
-    // const ifTrue = (status) => {
-    //     if(status === true){
-    //         return "Yes";
-    //     }
-    //     return "No";
-    // }
 
     const maxDishesPerCarousel = 5;
     
@@ -279,9 +255,6 @@ const RestaurantContainer = () =>{
             >
                 £££
             </button>
-                {/* <button value="LOW" onClick={()=>{filterByPrice("LOW")}} >£</button>
-                <button value="MEDIUM" onClick={()=>filterByPrice("MEDIUM")}>££</button>
-                <button value="HIGH" onClick={()=>filterByPrice("HIGH")}>£££</button> */}
             </div>
             <div className="cuisine-selecter">
                 <select id="restaurantSelect" onChange={(e)=> filterByCuisine(e.target.value)} value={cuisineFilter || ''}>

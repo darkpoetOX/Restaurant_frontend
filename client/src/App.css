@@ -321,7 +321,6 @@ input:checked + .slider:before {
     right: -240px; /* Start with the sidebar completely hidden to the right */
     transition: all 0.4s;
     z-index: 998;
-
     display: flex;
     flex-direction: column; /* Stack children vertically */
     /* Other styles for your sidebar container */
@@ -378,6 +377,9 @@ input:checked + .slider:before {
     border-radius: 10px;
 }
 
+.sidebar-box-scroll{
+    overflow-y:auto;
+}
 .restaurant-box:hover {
     background-color: #98c199; /* Change the background color on hover */
 }

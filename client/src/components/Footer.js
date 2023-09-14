@@ -8,7 +8,7 @@ const Footer = () => {
                     <div className="col-md-4">
                         {/* Contact Us Section */}
                         <h3>Contact Us</h3>
-                        <p>Email: Anna'sRecommends@example.com</p>
+                        <p>Email: AnnaRecommends@bnta.com</p>
                         <p>Phone: +1 (123) 456-7890</p>
                     </div>
                     <div className="col-md-4">
@@ -23,7 +23,7 @@ const Footer = () => {
                     </div>
                     <div className="col-md-4">
                         {/* Copyright Section */}
-                        <h3>&copy; 2023 Your Website</h3>
+                        <h3>&copy; 2023 Anna Recommends</h3>
                         <p>All rights reserved.</p>
                     </div>
                 </div>
