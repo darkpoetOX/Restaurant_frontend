@@ -201,12 +201,12 @@ const RestaurantContainer = () =>{
 
     };
 
-    const ifTrue = (status) => {
-        if(status === true){
-            return "Yes";
-        }
-        return "No";
-    }
+    // const ifTrue = (status) => {
+    //     if(status === true){
+    //         return "Yes";
+    //     }
+    //     return "No";
+    // }
 
     const maxDishesPerCarousel = 5;
     
@@ -237,8 +237,8 @@ const RestaurantContainer = () =>{
         setTimeout(() => {
             const dishesCarousel = document.querySelector(".footer")
             dishesCarousel.scrollIntoView({behavior: "smooth"})
-        }, 300)
-    }
+        }, 230)
+    } 
 
     const handleSelect = (selectedIndex) => {
         setCarouselIndex(selectedIndex);
@@ -329,8 +329,8 @@ const RestaurantContainer = () =>{
                     </label>
                     <span className="switch-name">Dairy Free</span>
                 </div>
-
-            </div>
+               
+            </div> <br/>
             <div className="dishes">
                 {(filteredDishesList.length !== 0) ?  
                 <Carousel 
@@ -341,7 +341,7 @@ const RestaurantContainer = () =>{
                 </Carousel> : 
                 <h3 className="please-select">Please select a restaurant</h3>}
             </div>
-
+            <br/>
             <CustomerReviews />
             <Footer />
         </>

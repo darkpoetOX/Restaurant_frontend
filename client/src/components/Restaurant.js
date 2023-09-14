@@ -17,7 +17,7 @@ const Restaurant =({addToFav, restaurant, setDishesList, updateFilteredDishesLis
         <div className={"EachRestaurant"} style={{ backgroundColor: selectedRestaurant === restaurant.name ? '#98c199' : '#d2cca1' }}>
             <div className="restaurant-head">
                 <p className="restaurant-name">{restaurant.name}</p>
-                <p className="restaurant-rating">{restaurant.rating} ⭐️</p>
+                <p className="restaurant-rating"><b>{restaurant.rating}</b> ⭐️</p>
             </div>
             <div className="select-button" >
                 <button onClick={selectRestaruant}>Select</button>
