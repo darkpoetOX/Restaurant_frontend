@@ -2,7 +2,7 @@ const FavouriteRestaurant = ({ restaurant, deleteFromFav }) => {
     return (
         <>
             <p>{restaurant.name}</p>
-            <button onClick={() => deleteFromFav(restaurant)}>💔</button>
+            <button className={"circular-button"} onClick={() => deleteFromFav(restaurant)}>❌</button>
         </>
     )
 }
