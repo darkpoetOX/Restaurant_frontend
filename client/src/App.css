@@ -95,7 +95,7 @@
     color: white; /* Adding this for better visibility */
 }
 
-.custom-navbar a {
+.custom-navbar a, .custom-navbar Button {
     text-decoration: none;
     color: rgb(15, 106, 15); /* Text color for navbar links */
     margin-left: 10em;
