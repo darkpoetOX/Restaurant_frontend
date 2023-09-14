@@ -1,7 +1,6 @@
 import FavouritesList from "./FavouritesList";
 
 const SideBar = ({show ,favourites, deleteFromFav}) => {
-  //    11 mins 50 tells you about react icons
 
 
   return (
