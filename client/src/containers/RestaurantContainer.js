@@ -253,7 +253,7 @@ const RestaurantContainer = () =>{
             </div>
             <SideBar show={showSideBar} favourites={favouritesList} deleteFromFav={deleteFromFav}/>
             <HeroImage />
-            <hr></hr>
+            <br/>
             <BoroughMap filterByBorough={filterByBorough} />
             <div className={"ResetButton"}>
                 <p className="borough-name">{boroughFilter ? boroughFilter : "Please select above"}</p>
