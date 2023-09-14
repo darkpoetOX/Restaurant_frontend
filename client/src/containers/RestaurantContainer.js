@@ -19,6 +19,8 @@ const RestaurantContainer = () =>{
     const [dishesList, setDishesList] = useState([]);
     const [filteredDishesList, setFilteredDishesList]=useState([]);
 
+    const [carouselIndex, setCarouselIndex] = useState(0);
+
     const [priceFilter, setPriceFilter] = useState(null); // Price filterc
     const [boroughFilter, setBoroughFilter] = useState(null); // Borough filter
     const [cuisineFilter, setCuisineFilter]= useState(null);
@@ -203,23 +205,6 @@ const RestaurantContainer = () =>{
     }
 
     const maxDishesPerCarousel = 5;
-
-    // const displayDishes = () => {
-    //     const displayDish = filteredDishesList.map((dish, index) => {
-    //         return <>
-    //         <div className="each-dish">
-    //             <h4>{dish.name}</h4>
-    //             <ul>
-    //                 <li>Vegetarian: {ifTrue(dish.vegetarian)}</li>
-    //                 <li>Vegan: {ifTrue(dish.vegan)}</li>
-    //                 <li>Dairy Free: {ifTrue(dish.dairyFree)}</li>
-    //                 <li>Halal: {ifTrue(dish.halal)}</li>
-    //             </ul>
-    //         </div>
-    //             </>;
-    //     });
-    //     return displayDish;
-    // }
     
     const displayDishes = () => {
         let finalCarousel = [];
@@ -241,6 +226,19 @@ const RestaurantContainer = () =>{
         }
         return finalCarousel
     }
+
+    const updateFilteredDishesList = (newFilteredDishesList) => {
+        setCarouselIndex(0);
+        setFilteredDishesList(newFilteredDishesList); //every time filtered dishes is updated, callback to re render carousel
+        setTimeout(() => {
+            const dishesCarousel = document.querySelector(".footer")
+            dishesCarousel.scrollIntoView({behavior: "smooth"})
+        }, 300)
+    }
+
+    const handleSelect = (selectedIndex) => {
+        setCarouselIndex(selectedIndex);
+      };
 
     return(
         <>
@@ -293,7 +291,7 @@ const RestaurantContainer = () =>{
             </div>
             <FavouritesList deleteFromFav = {deleteFromFav}/>
             <div className={"RestaurantBox"}>
-            <RestaurantList addToFav = {addToFav} restaurants={filteredList} setDishesList={setDishesList} setFilteredDishesList={setFilteredDishesList}/>
+            <RestaurantList addToFav = {addToFav} restaurants={filteredList} setDishesList={setDishesList} updateFilteredDishesList={updateFilteredDishesList}/>
             </div>
             <div className={"slider-css"}>
 
@@ -331,9 +329,15 @@ const RestaurantContainer = () =>{
 
             </div>
             <div className="dishes">
-
-                {(filteredDishesList.length !== 0)?  <Carousel interval={null}> {displayDishes()} </Carousel>: <h3 className="please-select">Please select a restaurant</h3>}
-                </div>
+                {(filteredDishesList.length !== 0) ?  
+                <Carousel 
+                    interval={null} 
+                    activeIndex={carouselIndex} 
+                    onSelect={handleSelect}> 
+                        {displayDishes()} 
+                </Carousel> : 
+                <h3 className="please-select">Please select a restaurant</h3>}
+            </div>
 
             <CustomerReviews />
             <Footer />
