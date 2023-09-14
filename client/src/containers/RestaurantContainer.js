@@ -251,7 +251,7 @@ const RestaurantContainer = () =>{
             <div className="openSideBarButton">
                 <button className="circular-button" onClick={() => setShowSideBar(!showSideBar)}>❤️</button>
             </div>
-            <SideBar show={showSideBar}/>
+            <SideBar show={showSideBar} favourites={favouritesList} deleteFromFav={deleteFromFav}/>
             <HeroImage />
             <hr></hr>
             <BoroughMap filterByBorough={filterByBorough} />
@@ -293,7 +293,6 @@ const RestaurantContainer = () =>{
                     ))}
                 </select>
             </div>
-            <FavouritesList deleteFromFav = {deleteFromFav}/>
             <div className={"RestaurantBox"}>
             <RestaurantList addToFav = {addToFav} restaurants={filteredList} setDishesList={setDishesList} updateFilteredDishesList={updateFilteredDishesList}/>
             </div>
