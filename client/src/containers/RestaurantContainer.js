@@ -1,3 +1,4 @@
+import * as React from 'react';
 import {useState,useEffect} from "react";
 import NavBar from "../components/NavBar";
 import FavouritesList from "../components/FavouritesList";
@@ -8,6 +9,13 @@ import HeroImage from "../components/HeroImage";
 import BoroughMap from "../components/BoroughMap";
 import { Carousel } from "react-bootstrap";
 import SideBar from "../components/SideBar";
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import Modal from '@mui/material/Modal';
+import SubmitRestaurantForm from '../components/SubmitRestaurantForm';
+
+
 
 
 const RestaurantContainer = () =>{
@@ -20,6 +28,8 @@ const RestaurantContainer = () =>{
     const [filteredDishesList, setFilteredDishesList]=useState([]);
 
     const [carouselIndex, setCarouselIndex] = useState(0);
+
+
 
     const [priceFilter, setPriceFilter] = useState(null); // Price filterc
     const [boroughFilter, setBoroughFilter] = useState(null); // Borough filter
@@ -244,110 +254,70 @@ const RestaurantContainer = () =>{
         setCarouselIndex(selectedIndex);
       };
 
-    return(
-        <>
-            <NavBar  />
-            {/*added a sidebar*/}
-            <div className="openSideBarButton">
-                <button className="circular-button" onClick={() => setShowSideBar(!showSideBar)}>❤️</button>
-            </div>
-            <SideBar show={showSideBar} favourites={favouritesList} deleteFromFav={deleteFromFav}/>
-            <HeroImage />
-            <hr></hr>
-            <BoroughMap filterByBorough={filterByBorough} />
-            <div className={"ResetButton"}>
-                <p className="borough-name">{boroughFilter ? boroughFilter : "Please select above"}</p>
-                <button onClick={handleResetFilters}> <strong>Reset Filters</strong> </button>
-            </div>
+   
 
-            <div className="price-range-buttons">
-            <button value="LOW" onClick={() => filterByPrice("LOW")}
-            style={{ backgroundColor: priceFilter === "LOW" ? '#98c199' : '#d2cca1' }} >
-            £
-            </button>
-            <button 
-            value="MEDIUM" 
-            onClick={() => filterByPrice("MEDIUM")}
-            style={{ backgroundColor: priceFilter === "MEDIUM" ? '#98c199' : '#d2cca1' }}
-            >
-            ££
-            </button>
-            <button 
-            value="HIGH" 
-            onClick={() => filterByPrice("HIGH")}
-            style={{ backgroundColor: priceFilter === "HIGH" ? '#98c199' : '#d2cca1' }}
-            >
-                £££
-            </button>
-                {/* <button value="LOW" onClick={()=>{filterByPrice("LOW")}} >£</button>
-                <button value="MEDIUM" onClick={()=>filterByPrice("MEDIUM")}>££</button>
-                <button value="HIGH" onClick={()=>filterByPrice("HIGH")}>£££</button> */}
-            </div>
-            <div className="cuisine-selecter">
-                <select id="restaurantSelect" onChange={(e)=> filterByCuisine(e.target.value)} value={cuisineFilter || ''}>
-                    <option value="">Please select cuisine</option>
-                    {selectCuisines.map((cuisine, index) => (
-                        <option key={index} value={cuisine}>
-                            {cuisine}
-                        </option>
-                    ))}
-                </select>
-            </div>
-            <div className={"RestaurantBox"}>
-            <RestaurantList addToFav = {addToFav} restaurants={filteredList} setDishesList={setDishesList} updateFilteredDishesList={updateFilteredDishesList}/>
-            </div>
-            <div className={"slider-css"}>
+    
 
-                <div className="switch-container">
-                    <label className="switch">
-                        <input type="checkbox" checked={halal} onChange={()=>setHalal(!halal)}/>
-                        <span className="slider round"></span>
-                    </label>
-                    <span className="switch-name">Halal</span>
-                </div>
+  return (
+    <>
+      <NavBar />
+      {/* added a sidebar */}
+      <div className="openSideBarButton">
+        <button
+          className="circular-button"
+          onClick={() => setShowSideBar(!showSideBar)}
+        >
+          ❤️
+        </button>
+      </div>
+      <SideBar show={showSideBar} favourites={favouritesList} deleteFromFav={deleteFromFav} />
+      <HeroImage />
+      <hr></hr>
+      <BoroughMap filterByBorough={filterByBorough} />
+      <div className={'ResetButton'}>
+        <p className="borough-name">{boroughFilter ? boroughFilter : 'Please select above'}</p>
+        <button onClick={handleResetFilters}> <strong>Reset Filters</strong> </button>
+      </div>
 
-                <div className="switch-container">
-                    <label className="switch">
-                        <input type="checkbox" checked={vegan} name="vegan" onChange={()=>setVegan(!vegan)}/>
-                        <span className="slider round"></span>
-                    </label>
-                    <span className="switch-name">Vegan</span>
-                </div>
+      <div className="price-range-buttons">
+        {/* Price range buttons */}
+      </div>
+      <div className="cuisine-selecter">
+        {/* Cuisine selecter */}
+      </div>
+      <div className={'RestaurantBox'}>
+        <RestaurantList addToFav={addToFav} restaurants={filteredList} setDishesList={setDishesList} updateFilteredDishesList={updateFilteredDishesList} />
+      </div>
+      <div className={'slider-css'}>
+        <div className="switch-container">
+          {/* Switch container content */}
+        </div>
+        {/* {/* <Button onClick={handleOpenModal}>Open Submit Form</Button> */}
 
-                <div className="switch-container">
-                    <label className="switch">
-                        <input type="checkbox" checked={vegetarian} onChange={()=>setVegetarian(!vegetarian)}/>
-                        <span className="slider round"></span>
-                    </label>
-                    <span className="switch-name">Vegetarian</span>
-                </div>
+        {/* <Modal
+          open={openModal}
+          onClose={handleCloseModal}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+        >
+          <Box sx={style}>
+            <Typography id="modal-modal-title" variant="h6" component="h2">
+              Submit Restaurant
+            </Typography>
+             Render your SubmitRestaurantForm component here
+            <SubmitRestaurantForm handleClose={handleCloseModal} /> 
+          </Box>
+        </Modal>   */}
+        
+      </div>
+      <div className="dishes">
+        {/* Dishes */}
+      </div>
 
-                <div className="switch-container">
-                    <label className="switch">
-                        <input type="checkbox" checked={dairyFree} onChange={()=>setDairyFree(!dairyFree)}/>
-                        <span className="slider round"></span>
-                    </label>
-                    <span className="switch-name">Dairy Free</span>
-                </div>
-
-            </div>
-            <div className="dishes">
-                {(filteredDishesList.length !== 0) ?  
-                <Carousel 
-                    interval={null} 
-                    activeIndex={carouselIndex} 
-                    onSelect={handleSelect}> 
-                        {displayDishes()} 
-                </Carousel> : 
-                <h3 className="please-select">Please select a restaurant</h3>}
-            </div>
-
-            <CustomerReviews />
-            <Footer />
-        </>
-
-    )
-
-}
+      <CustomerReviews />
+      <Footer />
+    </>
+  );
+};
 
 export default RestaurantContainer;
