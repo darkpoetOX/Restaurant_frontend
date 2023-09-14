@@ -261,7 +261,7 @@ input:checked + .slider:before {
 /* SIDEBAR CSS */
 .sidenav {
     width: 240px;
-    background: #757780;
+    background: #e3d9e9;
     position: fixed;
     height: 100%;
     padding: 0 30px;
@@ -320,6 +320,10 @@ input:checked + .slider:before {
     justify-content: space-between; /* Space items evenly within the box */
     align-items: center; /* Center items vertically */
     border-radius: 10px;
+}
+
+.restaurant-box:hover {
+    background-color: #98c199; /* Change the background color on hover */
 }
 
 
