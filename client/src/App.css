@@ -62,8 +62,8 @@
     align-items: center;
     justify-content: space-around;
     /*transparent navbar*/
-    /*background-color: rgba(0, 0, 0, 0);*/
-    background-color: lightblue; /* Adding this to test button for sidebar*/
+    background-color: rgba(173, 216, 230, 0.5);
+    /*background-color: blanchedalmond; !* Adding this to test button for sidebar*!*/
     z-index: 9999;
     font-size: 1.1vw;
     color: white; /* Adding this for better visibility */
@@ -266,7 +266,7 @@ input:checked + .slider:before {
     height: 100%;
     padding: 0 30px;
     right: -240px; /* Start with the sidebar completely hidden to the right */
-    transition: all 0.6s;
+    transition: all 0.4s;
     z-index: 998;
 }
 
