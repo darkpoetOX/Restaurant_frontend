@@ -307,6 +307,65 @@ input:checked + .slider:before {
 
 
 
+/* Footer Styles */
 
+.footer {
+    background-color: #757789;
+    color: #fff;
+    padding: 40px 0;
+}
 
+.footer h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
 
+.footer p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.social-icons {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.social-icons li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.social-icons a {
+    color: #fff;
+    font-size: 24px;
+    text-decoration: none;
+}
+
+.social-icons a:hover {
+    color: #ff5733; /* Change the color on hover */
+}
+
+/* Copyright Text Styles */
+
+.footer h3:last-child {
+    font-size: 18px;
+    margin-top: 20px;
+    font-weight: normal;
+}
+
+/* Responsive Styles */
+
+@media (max-width: 768px) {
+    .footer {
+        text-align: center;
+    }
+
+    .social-icons {
+        margin-top: 20px;
+    }
+
+    .social-icons li {
+        margin: 0 5px;
+    }
+}
