@@ -272,7 +272,7 @@ input:checked + .slider:before {
     display: flex;
     flex-direction: column; /* Stack children vertically */
     /* Other styles for your sidebar container */
-    padding-top: 75px;
+    padding-top: 45px;
 
 }
 
@@ -385,5 +385,13 @@ input:checked + .slider:before {
     .social-icons li {
         margin: 0 5px;
     }
+}
+.sidebar-title{
+    font-size: 1.5rem; /* Adjust the font size as needed */
+    font-weight: bold; /* Add bold font weight if desired */
+    color: #333; /* Set the text color */
+    text-align: center; /* Center align the text */
+    margin-top: 20px; /* Add top margin for spacing */
+    padding-bottom: 10px;
 }
 /*make favouriteList a different colour when we hover over each item  and also line up the button and text together in the same line put them in a square with rounded edges and make it look nice*/

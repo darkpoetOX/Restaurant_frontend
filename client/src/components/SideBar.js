@@ -6,7 +6,7 @@ const SideBar = ({show ,favourites, deleteFromFav}) => {
 
   return (
     <div className={show ? 'sidenav active':'sidenav'}>
-        <h3>Favourite Restaurants</h3>
+        <h4 className="sidebar-title">Favourites</h4>
         <FavouritesList className="favouriteList" favourites={favourites} deleteFromFav = {deleteFromFav} />
     </div>
   );
