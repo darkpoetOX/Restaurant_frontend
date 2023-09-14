@@ -6,16 +6,48 @@
 }
 
 .images{
-    width: 12%;
+    width: 20%;
+    height: 300px;
     object-fit: cover;
 }
 
-.dish-title{
-    position: relative;
-    left: 0;
+.dish-title0{
+    position: absolute;
+    left: 0%;
     color: white;
+    font-size: 1vw;
     z-index: 9999;
 }
+.dish-title1{
+    position: absolute;
+    left: 20%;
+    color: white;
+    font-size: 1vw;
+    z-index: 9999;
+}
+.dish-title2{
+    position: absolute;
+    left: 40%;
+    color: white;
+    font-size: 1vw;
+    z-index: 9999;
+}
+.dish-title3{
+    position: absolute;
+    left: 60%;
+    color: white;
+    font-size: 1vw;
+    z-index: 9999;
+}
+.dish-title4{
+    position: absolute;
+    left: 80%;
+    color: white;
+    font-size: 1vw;
+    z-index: 9999;
+}
+
+
 
 .custom-navbar {
     position: absolute;

@@ -229,7 +229,7 @@ const RestaurantContainer = () =>{
             })
             .map((dish, index) => {
                     return <>
-                    <label className="dish-title">{dish.name}</label>
+                    <label className={`dish-title${index}`}>{dish.name}</label>
                     <img src={'./Images/heroBanner1.png'} className={"images"}/>
                     </>
             });
@@ -324,7 +324,7 @@ const RestaurantContainer = () =>{
             </div>
             <div className="dishes">
 
-                {(filteredDishesList.length !== 0)?  <Carousel> {displayDishes()} </Carousel>: <h3>Please select a restaurant</h3>}
+                {(filteredDishesList.length !== 0)?  <Carousel interval={null}> {displayDishes()} </Carousel>: <h3>Please select a restaurant</h3>}
                 </div>
 
             <CustomerReviews />
