@@ -4,20 +4,20 @@ const HeroImage =  () => {
     return (
         <Carousel fade interval={3000}>
             <Carousel.Item>
-                <img src={'./Images/heroBanner1.png'} className={"hero-image"}/>
+                <img src={'/Images/dishes/herotest.png'} className={"hero-image"}/>
                 <Carousel.Caption>
 
                 </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
-                <img src={'./Images/heroBanner2.png'} className={"hero-image"}/>
+                <img src={'/Images/dishes/herotest1.png'} className={"hero-image"}/>
                 <Carousel.Caption>
 
 
                 </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
-                <img src={'./Images/heroBanner3.png'} className={"hero-image"}/>
+                <img src={'/Images/dishes/hero5.png'} className={"hero-image"}/>
                 <Carousel.Caption>
 
 

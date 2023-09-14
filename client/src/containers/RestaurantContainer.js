@@ -222,7 +222,7 @@ const RestaurantContainer = () =>{
             .map((dish, index) => {
                     return <>
                     <label className={`dish-title${index}`}>{dish.name}</label>
-                    <img src={'./Images/heroBanner1.png'} className={"images"}/>
+                    <img src={`./Images/dishes/${dish.id}.jpg`} className={"images"} alt={dish.name}/>
                     </>
             });
             finalCarousel.push(<Carousel.Item>{eachCarousel}</Carousel.Item>);
@@ -294,7 +294,7 @@ const RestaurantContainer = () =>{
                 </select>
             </div>
             <div className={"RestaurantBox"}>
-            <RestaurantList addToFav = {addToFav} restaurants={filteredList} setDishesList={setDishesList} updateFilteredDishesList={updateFilteredDishesList}/>
+            <RestaurantList addToFav = {addToFav} restaurants={filteredList} selectedRestaurant={selectedRestaurant} setDishesList={setDishesList} updateFilteredDishesList={updateFilteredDishesList} setSelectedRestaurant={setSelectedRestaurant}/>
             </div>
             <div className={"slider-css"}>
 

@@ -3,9 +3,9 @@ const NavBar = () => {
 
     return(
             <nav className="custom-navbar">
-                <h1>Anna's Recommends</h1>
-                <a href="">About Us</a>
-                <a href="">Submit Restaurant</a>
+                <img className="logo" src="/Images/logo.png"/>
+                <a href=""><b>About Us</b></a>
+                <a href=""><b>Submit Restaurant</b></a>
             </nav>
     )
 }

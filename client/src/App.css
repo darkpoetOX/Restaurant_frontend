@@ -1,3 +1,8 @@
+.App{
+    font-family: 'Caveat', cursive;
+    font-size: larger;
+}
+
 .hero-image {
     width: 100%;
     height: 700px;
@@ -11,38 +16,58 @@
     object-fit: cover;
 }
 
+.logo {
+    height: 130px;
+    width: 350px;
+}
+
 .dish-title0{
     position: absolute;
-    left: 0%;
-    color: white;
+    left: 3%;
+    top: 10%;
+    color: black;
+    background-color: rgba(173, 216, 230, 0.8);
+    padding: 0.2em;
     font-size: 1vw;
     z-index: 9999;
 }
 .dish-title1{
     position: absolute;
-    left: 20%;
-    color: white;
+    left: 23%;
+    top: 10%;
+    color: black;
+    background-color: rgba(173, 216, 230, 0.8);
+    padding: 0.2em;
     font-size: 1vw;
     z-index: 9999;
 }
 .dish-title2{
     position: absolute;
-    left: 40%;
-    color: white;
+    left: 43%;
+    top: 10%;
+    color: black;
+    background-color: rgba(173, 216, 230, 0.8);
+    padding: 0.2em;
     font-size: 1vw;
     z-index: 9999;
 }
 .dish-title3{
     position: absolute;
-    left: 60%;
-    color: white;
+    left: 63%;
+    top: 10%;
+    color: black;
+    background-color: rgba(173, 216, 230, 0.8);
+    padding: 0.2em;
     font-size: 1vw;
     z-index: 9999;
 }
 .dish-title4{
     position: absolute;
-    left: 80%;
-    color: white;
+    left: 83%;
+    top: 10%;
+    color: black;
+    background-color: rgba(173, 216, 230, 0.8);
+    padding: 0.2em;
     font-size: 1vw;
     z-index: 9999;
 }
@@ -57,12 +82,13 @@
     position: absolute;
     left: 0;
     width: 100%;
-    display: flex;
+    display: grid;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: space-around;
+    /* justify-content: space-between; */
+    grid-template-columns: 25% 25% 25% 25%;
     /*transparent navbar*/
-    background-color: rgba(173, 216, 230, 0.5);
+    background-color: rgba(173, 216, 230, 0.7);
     /*background-color: blanchedalmond; !* Adding this to test button for sidebar*!*/
     z-index: 9999;
     font-size: 1.1vw;
@@ -71,7 +97,14 @@
 
 .custom-navbar a {
     text-decoration: none;
-    color: #757780; /* Text color for navbar links */
+    color: rgb(15, 106, 15); /* Text color for navbar links */
+    margin-left: 10em;
+    font-size: 1.5vw;
+}
+
+.custom-navbar a:hover {
+    color: white;
+    text-decoration: underline;
 }
 
 .BoroughMap {
@@ -111,7 +144,7 @@ body {
     background-color: #dbd4d3 !important;
 }
 
-.ResetButton {
+.ResetButton, .cuisine-selecter {
     display: flex;
     justify-content: center;
     gap: 10px;
@@ -119,7 +152,7 @@ body {
     margin-bottom: 20px;
 }
 
-.ResetButton button {
+.ResetButton button, .cuisine-selecter select {
     padding: 10px 20px;
     background-color: #d2cca1;
     color: #757780;
@@ -129,6 +162,7 @@ body {
     border-radius: 24px;
     width: 150px;
     height: 45px;
+    text-align: center;
 }
 
 .ResetButton button:hover {
@@ -151,12 +185,28 @@ body {
 }
 
 .EachRestaurant {
-    background-color: #d2cca1;
+    /* background-color: #d2cca1; */
     padding: 15px;
     margin-bottom: 10px;
     border-radius: 5px;
-    height: 100px;
+    height: 150px;
+    display: grid;
+    grid-template-rows: 50% 50%;
 }
+
+.restaurant-name {
+    font-size: larger;
+}
+
+.restaurant-rating {
+    text-align: right;
+} 
+
+.restaurant-head{
+    display: grid;
+    grid-template-columns: 70% 30%;
+}
+
 
 .EachRestaurant button {
     padding: 10px 20px;
@@ -166,6 +216,10 @@ body {
     cursor: pointer;
     transition: background-color 0.3s;
     border-radius: 24px;
+}
+
+.select-button{
+    margin-top: 1.4em;
 }
 
 .switch {
@@ -255,8 +309,6 @@ input:checked + .slider:before {
     padding: 5px;
     font-size: 16px;
 }
-
-
 
 /* SIDEBAR CSS */
 .sidenav {
