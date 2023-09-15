@@ -190,25 +190,25 @@ const RestaurantContainer = () =>{
         let finalCarousel = [];
         let page = 1;
         while(page <= Math.ceil(filteredDishesList.length/maxDishesPerCarousel)){
-            const eachCarousel = filteredDishesList.filter((dish, index) => {
+            const eachCarousel = filteredDishesList.filter((dish, index) => { //returns 5 dishes at a time
                 if(index >= (page-1)*maxDishesPerCarousel && index < page*maxDishesPerCarousel){ // index 0-4
                     return dish;
                 }
             })
-            .map((dish, index) => {
+            .map((dish, index) => { //maps through the 5 and returns label and image
                     return <>
                     <label className={`dish-title${index}`}>{dish.name}</label>
                     <img src={`./Images/dishes/${dish.id}.jpg`} className={"images"} alt={dish.name}/>
                     </>
             });
-            finalCarousel.push(<Carousel.Item>{eachCarousel}</Carousel.Item>);
+            finalCarousel.push(<Carousel.Item>{eachCarousel}</Carousel.Item>); //eachCarousel holds 5 dish images and labels
             page++;
         }
-        return finalCarousel
+        return finalCarousel //contains multiple eachCarousels depending on how many dishes a restaurant has
     }
 
     const updateFilteredDishesList = (newFilteredDishesList) => {
-        setCarouselIndex(0);
+        setCarouselIndex(0); //resets back to "page" 1 of the carousel in case next restaurant selected does not have more than 1 page
         setFilteredDishesList(newFilteredDishesList); //every time filtered dishes is updated, callback to re render carousel
         setTimeout(() => {
             const dishesCarousel = document.querySelector(".footer")
@@ -216,7 +216,7 @@ const RestaurantContainer = () =>{
         }, 230)
     } 
 
-    const handleSelect = (selectedIndex) => {
+    const handleSelect = (selectedIndex) => { //keeps track of the "page" of the carousel
         setCarouselIndex(selectedIndex);
       };
 
@@ -256,8 +256,9 @@ const RestaurantContainer = () =>{
                 £££
             </button>
             </div>
-            <div className="cuisine-selecter">
-                <select id="restaurantSelect" onChange={(e)=> filterByCuisine(e.target.value)} value={cuisineFilter || ''}>
+            <div className="cuisine-selecter"> 
+                {/* to get the dropdown back to please select cuisine after reset filter is called */}
+                <select id="restaurantSelect" onChange={(e)=> filterByCuisine(e.target.value)} value={cuisineFilter || ''}> 
                     <option value="">Please select cuisine</option>
                     {selectCuisines.map((cuisine, index) => (
                         <option key={index} value={cuisine}>
