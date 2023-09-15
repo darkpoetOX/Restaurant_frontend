@@ -42,7 +42,7 @@ const RestaurantContainer = () =>{
         "MEDITERRANEAN",
         "MEXICAN",
         // "NIGERIAN",
-        // "PAKISTANI",
+        "PAKISTANI",
         "THAI",
         // "TURKISH",
         // "SOMALIAN",
