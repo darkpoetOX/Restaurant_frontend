@@ -5,10 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1a7b8f35-2363-475c-a5b7-ac7bf11f3438" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/public/Images/dishes/43.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Images/herotest1.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/RestaurantContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/RestaurantContainer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/src/main/java/com/bnta/annas_restaurant_recommender/components/DataLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/main/java/com/bnta/annas_restaurant_recommender/components/DataLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/HeroImage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HeroImage.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +50,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/tarekahmed/Documents/bnta_work/Restaurant_frontend/client/public/Images/dishes",
+    "last_opened_file_path": "/Users/tarekahmed/Documents/bnta_work/Restaurant_frontend/client/public/Images",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -61,6 +60,9 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/Images" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/public/Images" />
     </key>
@@ -94,6 +96,7 @@
       <workItem from="1694680629306" duration="7323000" />
       <workItem from="1694702796825" duration="1094000" />
       <workItem from="1694768007951" duration="1066000" />
+      <workItem from="1694774532414" duration="644000" />
     </task>
     <servers />
   </component>
