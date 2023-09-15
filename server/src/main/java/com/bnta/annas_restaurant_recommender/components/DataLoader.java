@@ -67,10 +67,11 @@ public class DataLoader implements ApplicationRunner{
         Dish dish40 = new Dish("Hot Dog", false, false, false, true, Cuisine.AMERICAN);
         Dish dish41 = new Dish("Pepperoni Pizza", false, false, false, false, Cuisine.ITALIAN);
         Dish dish42 = new Dish("Ribs", false, false, true, false, Cuisine.AMERICAN);
+        Dish dish43 = new Dish("Roti", true, false, true, true, Cuisine.PAKISTANI);
 
         dishRepository.saveAll(List.of(dish1, dish2, dish3, dish4, dish5, dish6, dish7, dish8, dish9, dish10, dish11, dish12, dish13,dish14, dish15, dish16,
                 dish17, dish18, dish19, dish20, dish21, dish22, dish23, dish24, dish25, dish26, dish27,dish28,dish29, dish30, dish31, dish32, dish33,
-                dish34, dish35, dish36, dish37, dish38, dish39, dish40, dish41, dish42));
+                dish34, dish35, dish36, dish37, dish38, dish39, dish40, dish41, dish42,dish43));
 
         List<Restaurant> restaurants = new ArrayList<>();
         restaurants.add(new Restaurant("Bob's Seafood", Borough.SOUTHWARK, PriceRange.MEDIUM, 3, List.of(dish1, dish17, dish22, dish35,dish39)));
@@ -98,7 +99,8 @@ public class DataLoader implements ApplicationRunner{
         restaurants.add(new Restaurant("Viet Cafe", Borough.SOUTHWARK, PriceRange.MEDIUM, 4,List.of(dish11,dish23,dish31)));
         restaurants.add(new Restaurant("Gokyuzu", Borough.HARINGEY, PriceRange.MEDIUM, 3, List.of(dish42,dish12,dish35,dish26,dish13)));
         restaurants.add(new Restaurant("Gopals Corner", Borough.TOWERHAMLETS, PriceRange.LOW, 4, List.of(dish20,dish22,dish27,dish32)));
-        restaurants.add(new Restaurant("J.J.Moon's-Wetherspoons", Borough.HILLINGDON, PriceRange.LOW, 0,List.of(dish7, dish35, dish40, dish8, dish10,dish5, dish28, dish41, dish34, dish42)));
+        restaurants.add(new Restaurant("J.J.Moon's-Wetherspoons", Borough.HILLINGDON, PriceRange.MEDIUM, 0,List.of(dish7, dish35, dish40, dish8, dish10,dish5, dish28, dish41, dish34, dish42)));
+        restaurants.add(new Restaurant("Roti Leliyeh", Borough.HILLINGDON, PriceRange.LOW, -1,List.of(dish43, dish8,dish35)));
         restaurantRepository.saveAll(restaurants);
 
     }
