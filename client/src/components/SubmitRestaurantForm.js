@@ -29,7 +29,7 @@ const SubmitRestaurantForm = ({ handleClose }) => {
         </select><br />
 
         <label for="frating">Rating:</label><br/>
-        <input type="text" id="frating" />
+        <input type="number" id="frating" />
         <input type="submit" value="Enter"/><br/>
       </form>
       <br/>
