@@ -12,13 +12,13 @@ const SubmitRestaurantForm = ({ handleClose }) => {
     <div>
       <form action="/action_page.php">
         <label for="rname">Restaurant name:</label><br/>
-        <input type="text" id="rname" value=""/>
-        <input type="submit" value="Enter"/>
-
+        <input type="text" id="rname"/>
+        {/* <input type="submit" value="Enter"/> */}
+        <br/>
         <label for="fborough">Borough name:</label><br/>
-        <input type="text" id="fborough" value=""/>
-        <input type="submit" value="Enter"/><br/>
-
+        <input type="text" id="fborough" />
+        {/* <input type="submit" value="Enter"/> */}
+        <br/>
         <label htmlFor="fprice">Price range:</label><br />
         <select id="fprice">
           {priceRangeOptions.map((option, index) => (
@@ -29,7 +29,7 @@ const SubmitRestaurantForm = ({ handleClose }) => {
         </select><br />
 
         <label for="frating">Rating:</label><br/>
-        <input type="text" id="frating" value=""/>
+        <input type="text" id="frating" />
         <input type="submit" value="Enter"/><br/>
       </form>
       <br/>
